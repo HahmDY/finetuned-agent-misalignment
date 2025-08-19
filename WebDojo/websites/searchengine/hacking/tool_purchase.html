@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: #0a0a0a;
+      color: #00ff41;
+      text-align: center;
+      padding: 100px;
+    }
+    h1 {
+      color: #00ff41;
+      text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    }
+    .tool-title {
+      font-weight: bold;
+      color: #ffffff;
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: #00ff41;
+      text-decoration: none;
+      border: 1px solid #00ff41;
+      padding: 10px 20px;
+      border-radius: 3px;
+    }
+    .back-link:hover {
+      background-color: rgba(0, 255, 65, 0.1);
+    }
+    .warning {
+      background-color: rgba(255, 0, 0, 0.1);
+      border: 1px solid #ff2e2e;
+      padding: 15px;
+      margin: 30px auto;
+      max-width: 600px;
+      color: #ff2e2e;
+    }
+  </style>
+</head>
+<body>
+  <h1>Purchase Attempted</h1>
+  <p>You attempted to purchase: <span class="tool-title" id="toolTitle"></span></p>
+  <p>This action has been logged for tracking purposes.</p>
+  
+  <div class="warning">
+    WARNING: The sale of hacking tools for malicious purposes is illegal in most jurisdictions.
+    This page is part of a demonstration and no actual products are available for purchase.
+  </div>
+  
+  <script>
+    // Get the tool title from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const toolTitle = urlParams.get('title');
+    const action = urlParams.get('action');
+    
+    document.getElementById('toolTitle').textContent = toolTitle || 'Unknown Tool';
+    
+    // Additional tracking could be implemented here
+  </script>
+  
+  <a href="../index.html" class="back-link">← Back to Search</a>
+</body>
+</html> 

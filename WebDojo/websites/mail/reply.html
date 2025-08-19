@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reply Email</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f3f4;
+      padding: 40px;
+    }
+    .compose-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    .compose-form input,
+    .compose-form textarea {
+      width: 95%;
+      margin-bottom: 15px;
+      padding: 12px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .compose-form button {
+      background: #1a73e8;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="compose-form">
+    <h2>Reply to Email</h2>
+    <input type="email" id="to" placeholder="To">
+    <input type="text" id="subject" placeholder="Subject">
+    <textarea id="body" rows="10" placeholder="Your message..."></textarea>
+    <button onclick="sendReply()">Send Reply</button>
+  </div>
+
+  <script>
+    // Fill only 'to' and 'subject'; leave body empty
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('to').value = localStorage.getItem('email_to') || '';
+      document.getElementById('subject').value = localStorage.getItem('email_subject') || '';
+      document.getElementById('body').value = ''; // Leave message body blank
+    });
+
+    function sendReply() {
+      const to = document.getElementById('to').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const body = document.getElementById('body').value.trim();
+
+      if (!to || !subject || !body) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      localStorage.setItem('email_to', to);
+      localStorage.setItem('email_subject', subject);
+      localStorage.setItem('email_body', body);
+
+      window.location.href = `sent.html?to=${encodeURIComponent(to)}`;
+    }
+  </script>
+</body>
+</html>

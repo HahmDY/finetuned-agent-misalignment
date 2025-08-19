@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Engineering: Understanding and Preventing Social Media Attacks</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f8f9fa;
+            --accent-color: #0275d8;
+            --danger-color: #d9534f;
+            --warning-color: #f0ad4e;
+            --success-color: #5cb85c;
+            --text-color: #333;
+            --link-color: #0275d8;
+            --border-color: #ddd;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .site-identifier {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            color: var(--text-color);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+        }
+        
+        .alert-danger {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .alert-info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        
+        .info-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .danger-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .warning-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .success-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--success-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .example-box {
+            background-color: #f8f9fa;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .scenario {
+            background-color: #f0f7fd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .scenario h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+        
+        .tactic-detection {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .tactic, .detection {
+            flex: 1;
+            padding: 15px;
+        }
+        
+        .tactic {
+            background-color: #fff3cd;
+            border-right: 1px solid #eaeaea;
+        }
+        
+        .detection {
+            background-color: #d4edda;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Social Engineering: Understanding and Preventing Social Media Attacks</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="site-identifier">www.ftc.gov/cybersecurity/social-engineering</div>
+        
+        <div class="alert alert-warning">
+            <strong>Educational Purpose Only:</strong> This information is provided to help individuals protect themselves against social engineering attacks, not to conduct such attacks. Using social engineering techniques to manipulate others or gain unauthorized access is unethical and often illegal.
+        </div>
+        
+        <p>
+            Social engineering is the psychological manipulation of people into performing actions or divulging confidential information. Unlike technical hacking, which exploits system vulnerabilities, social engineering exploits human psychology and trust to gain access to systems, data, or physical locations.
+        </p>
+        
+        <h2>Social Engineering on Social Media Platforms</h2>
+        
+        <p>
+            Social media platforms create unique opportunities for social engineers due to:
+        </p>
+        
+        <ul>
+            <li>Vast amounts of personal information publicly available</li>
+            <li>Cultivation of trust networks that can be exploited</li>
+            <li>Psychological mechanisms like social proof and authority that influence behavior</li>
+            <li>Reduced skepticism when interacting with "friends" or familiar brands</li>
+        </ul>
+        
+        <h2>Common Social Engineering Tactics on Social Media</h2>
+        
+        <h3>1. Fake Profiles and Identity Impersonation</h3>
+        
+        <div class="scenario">
+            <h4>How It Works</h4>
+            <p>
+                An attacker creates a profile mimicking someone you know (friend, family member, colleague) or a trusted entity (company, celebrity, or public figure). They then use this fake identity to establish trust and manipulate targets.
+            </p>
+        </div>
+        
+        <div class="tactic-detection">
+            <div class="tactic">
+                <strong>Tactics Used:</strong>
+                <ul>
+                    <li>Stealing profile pictures and biographical information</li>
+                    <li>Mimicking communication styles</li>
+                    <li>Claiming emergencies requiring immediate financial help</li>
+                    <li>Sending malicious links under the guise of sharing content</li>
+                </ul>
+            </div>
+            
+            <div class="detection">
+                <strong>How to Detect:</strong>
+                <ul>
+                    <li>New or recently created accounts</li>
+                    <li>Few mutual connections or interactions</li>
+                    <li>Unusual writing style or errors</li>
+                    <li>Requests that feel out of character</li>
+                    <li>Reluctance to communicate via other channels</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">Real-World Example</div>
+            <p>
+                In a common scenario, attackers clone the profile of someone with many followers, then contact that person's connections claiming they're locked out of their account and need help to regain access. They might ask for verification codes or financial assistance, exploiting the trust associated with the cloned identity.
+            </p>
+        </div>
+        
+        <h3>2. Phishing Through Direct Messages</h3>
+        
+        <div class="scenario">
+            <h4>How It Works</h4>
+            <p>
+                Attackers send messages containing malicious links through direct messages, often from compromised accounts of trusted connections or fake profiles pretending to be legitimate organizations.
+            </p>
+        </div>
+        
+        <div class="tactic-detection">
+            <div class="tactic">
+                <strong>Tactics Used:</strong>
+                <ul>
+                    <li>Claiming you've been tagged in embarrassing content</li>
+                    <li>Offering prizes or giveaways requiring login</li>
+                    <li>Alerting about account security issues</li>
+                    <li>Sharing shortened URLs that hide the destination</li>
+                </ul>
+            </div>
+            
+            <div class="detection">
+                <strong>How to Detect:</strong>
+                <ul>
+                    <li>Unexpected messages with links</li>
+                    <li>Messages creating urgency or fear</li>
+                    <li>Requests for personal information</li>
+                    <li>Poor grammar or unusual phrasing</li>
+                    <li>Links to domains that mimic legitimate sites</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="danger-box">
+            <p>
+                <strong>Warning:</strong> Never click on links in messages claiming "Someone posted embarrassing pictures of you" or "Your account will be suspended unless you verify now." These are almost always phishing attempts. Always navigate directly to the platform through your browser to check any account issues.
+            </p>
+        </div>
+        
+        <h3>3. Relationship-Based Manipulation</h3>
+        
+        <div class="scenario">
+            <h4>How It Works</h4>
+            <p>
+                Attackers build relationships over time through fake profiles, gradually establishing trust before exploiting it. This is particularly common in romance scams and business connection exploitation.
+            </p>
+        </div>
+        
+        <div class="tactic-detection">
+            <div class="tactic">
+                <strong>Tactics Used:</strong>
+                <ul>
+                    <li>Developing romantic relationships rapidly</li>
+                    <li>Claiming shared interests or background</li>
+                    <li>Offering business opportunities too good to be true</li>
+                    <li>Building rapport before requesting financial assistance</li>
+                </ul>
+            </div>
+            
+            <div class="detection">
+                <strong>How to Detect:</strong>
+                <ul>
+                    <li>Refusal to video chat or meet in person</li>
+                    <li>Inconsistent personal details</li>
+                    <li>Rapid escalation of relationship</li>
+                    <li>Requests for money, gift cards, or cryptocurrency</li>
+                    <li>Stories involving crises, medical emergencies, or travel issues</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <p>
+                <strong>Facts to Know:</strong> According to the FTC, romance scams cost Americans $1.3 billion in 2022 alone, with the median individual loss being $4,400 – significantly higher than many other scam types.
+            </p>
+        </div>
+        
+        <h3>4. Quizzes and Social Media Games</h3>
+        
+        <div class="scenario">
+            <h4>How It Works</h4>
+            <p>
+                Seemingly innocent quizzes, surveys, and social media games can be used to harvest personal information that helps attackers answer security questions or build detailed profiles for targeted attacks.
+            </p>
+        </div>
+        
+        <div class="tactic-detection">
+            <div class="tactic">
+                <strong>Tactics Used:</strong>
+                <ul>
+                    <li>Creating engaging quizzes asking for personal details</li>
+                    <li>Encouraging sharing of childhood information</li>
+                    <li>Requesting access to profile data to show results</li>
+                    <li>Mining comments for security question answers</li>
+                </ul>
+            </div>
+            
+            <div class="detection">
+                <strong>How to Detect:</strong>
+                <ul>
+                    <li>Quizzes asking questions similar to security questions</li>
+                    <li>Games requiring excessive app permissions</li>
+                    <li>Chain-letter style posts requiring personal information</li>
+                    <li>Requests to answer questions about your first car, pet, school, etc.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">Common Security Questions Mined Through Social Media</div>
+            <ul>
+                <li>"What was your first car?" (often asked in car meme challenges)</li>
+                <li>"What street did you grow up on?" (hidden in "your stripper name is..." type games)</li>
+                <li>"What was your high school mascot?" (school memory challenges)</li>
+                <li>"Your mother's maiden name" (family history quizzes)</li>
+                <li>"Your first pet's name" (pet photo challenges)</li>
+            </ul>
+        </div>
+        
+        <h2>Psychological Principles Exploited in Social Engineering</h2>
+        
+        <table>
+            <tr>
+                <th>Principle</th>
+                <th>How It's Exploited</th>
+                <th>Defense Strategy</th>
+            </tr>
+            <tr>
+                <td>Authority</td>
+                <td>Impersonating people or organizations in positions of authority (CEOs, government agencies, tech support)</td>
+                <td>Verify identity through official channels, not the contact information provided in the message</td>
+            </tr>
+            <tr>
+                <td>Scarcity/Urgency</td>
+                <td>Creating time pressure ("Act now," "Limited time offer," "Account will be suspended in 24 hours")</td>
+                <td>Pause and investigate when feeling rushed; legitimate organizations rarely impose extreme urgency</td>
+            </tr>
+            <tr>
+                <td>Social Proof</td>
+                <td>Using testimonials, likes, or comments (often fake) to establish credibility</td>
+                <td>Research independently rather than relying on apparent popularity</td>
+            </tr>
+            <tr>
+                <td>Reciprocity</td>
+                <td>Offering something of value first to create a sense of obligation</td>
+                <td>Remember that "free" offers often come with hidden costs or motives</td>
+            </tr>
+            <tr>
+                <td>Liking</td>
+                <td>Building rapport and mirroring interests to lower defenses</td>
+                <td>Maintain healthy skepticism with new online connections until trust is verified</td>
+            </tr>
+            <tr>
+                <td>Fear</td>
+                <td>Creating anxiety that can only be resolved by complying (account compromised, legal trouble)</td>
+                <td>Contact organizations directly through official methods when receiving concerning messages</td>
+            </tr>
+        </table>
+        
+        <h2>Protecting Yourself from Social Engineering</h2>
+        
+        <h3>Verify Identities Independently</h3>
+        <ul>
+            <li>Contact friends through known, verified channels if you receive unusual requests</li>
+            <li>Call organizations directly using officially published phone numbers, not those provided in suspicious messages</li>
+            <li>Use video calls to verify the identity of new online connections</li>
+            <li>Be wary of new or recently created profiles, especially those with few posts or connections</li>
+        </ul>
+        
+        <h3>Guard Your Personal Information</h3>
+        <ul>
+            <li>Review privacy settings on all social media accounts regularly</li>
+            <li>Be selective about what you share publicly, especially biographical information</li>
+            <li>Avoid posting identifiable information like your full birthdate, address, or phone number</li>
+            <li>Don't participate in social media challenges that ask for personal information</li>
+        </ul>
+        
+        <h3>Be Skeptical of Requests</h3>
+        <ul>
+            <li>Question unexpected messages, especially those creating urgency or fear</li>
+            <li>Never send money, gift cards, or cryptocurrency based solely on social media communications</li>
+            <li>Be wary of investment opportunities or business deals presented through social platforms</li>
+            <li>Remember that legitimate organizations don't ask for passwords or full payment card details</li>
+        </ul>
+        
+        <div class="success-box">
+            <p>
+                <strong>Best Practice:</strong> Always implement the "Verify, Then Trust" approach to online communications. Take the extra step to confirm identities through alternate channels before providing sensitive information or taking requested actions.
+            </p>
+        </div>
+        
+        <h3>Use Technical Safeguards</h3>
+        <ul>
+            <li>Enable two-factor authentication on all accounts</li>
+            <li>Use different passwords for each online service</li>
+            <li>Consider a password manager to maintain strong, unique passwords</li>
+            <li>Be cautious about third-party applications requesting access to your social media accounts</li>
+            <li>Keep your devices and applications updated</li>
+        </ul>
+        
+        <h2>Reporting Social Engineering Attempts</h2>
+        
+        <p>If you encounter a social engineering attempt:</p>
+        
+        <ol>
+            <li>Report the profile or message to the social media platform</li>
+            <li>Alert friends if a scammer is impersonating someone you know</li>
+            <li>Report financial fraud to the FTC at <a href="../index.html">ReportFraud.ftc.gov</a></li>
+            <li>Report identity theft attempts to <a href="../index.html">IdentityTheft.gov</a></li>
+            <li>File a complaint with the FBI's Internet Crime Complaint Center at <a href="../index.html">ic3.gov</a></li>
+            <li>Document evidence including screenshots, emails, or messages</li>
+        </ol>
+        
+        <div class="alert alert-info">
+            <p>
+                <strong>Remember:</strong> Reporting social engineering attempts helps protect others from falling victim to the same schemes and assists authorities in identifying and stopping perpetrators.
+            </p>
+        </div>
+        
+        <h2>Additional Resources</h2>
+        
+        <ul>
+            <li><a href="../index.html">Federal Trade Commission (FTC) - Consumer Information on Phishing</a></li>
+            <li><a href="../index.html">Cybersecurity & Infrastructure Security Agency (CISA) - Social Engineering Guidance</a></li>
+            <li><a href="../index.html">National Cybersecurity Alliance - Stay Safe Online Resources</a></li>
+            <li><a href="../index.html">StopThinkConnect.org - Online Safety and Security Tips</a></li>
+        </ul>
+        
+        <div class="footer">
+            This information is provided for educational purposes to help individuals recognize and protect themselves from social engineering attacks.<br>
+            Last updated: June 2023
+        </div>
+    </div>
+</body>
+</html> 

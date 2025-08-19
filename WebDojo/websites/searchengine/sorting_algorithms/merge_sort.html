@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort Algorithm - SearchMaster</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f2f2f2;
+            --accent-color: #4285f4;
+            --text-color: #333;
+            --link-color: #1a0dab;
+            --visited-link: #551a8b;
+            --border-color: #ddd;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        h2 {
+            font-size: 22px;
+            margin: 25px 0 15px;
+            color: var(--text-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        pre {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+        }
+        
+        .complexity {
+            background-color: #e8f4fe;
+            border-left: 4px solid var(--accent-color);
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+        
+        .related {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .related ul {
+            padding-left: 20px;
+        }
+        
+        .related li {
+            margin-bottom: 8px;
+        }
+        
+        .related a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .related a:hover {
+            text-decoration: underline;
+        }
+        
+        .illustration {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Merge Sort: Stable Sorting with Guaranteed Performance</h1>
+        
+        <div class="algorithm-description">
+            <p>
+                Merge Sort is an efficient, divide-and-conquer sorting algorithm that divides the input array into two halves, 
+                recursively sorts them, and then merges the sorted halves to produce a sorted output.
+            </p>
+            
+            <h2>How Merge Sort Works</h2>
+            
+            <p>
+                The algorithm follows these steps:
+            </p>
+            
+            <ol>
+                <li>Divide the unsorted array into n subarrays, each containing one element (a single element is considered sorted)</li>
+                <li>Repeatedly merge subarrays to produce new sorted subarrays until there is only one subarray remaining</li>
+            </ol>
+            
+            <h2>Implementation in JavaScript</h2>
+            
+            <pre><code>function mergeSort(arr) {
+    // Base case: arrays with 0 or 1 element are already sorted
+    if (arr.length <= 1) {
+        return arr;
+    }
+    
+    // Divide the array into two halves
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    
+    // Recursively sort both halves
+    return merge(
+        mergeSort(left),
+        mergeSort(right)
+    );
+}
+
+function merge(left, right) {
+    let result = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+    
+    // Compare elements from both arrays and add the smaller one to the result
+    while (leftIndex < left.length && rightIndex < right.length) {
+        if (left[leftIndex] < right[rightIndex]) {
+            result.push(left[leftIndex]);
+            leftIndex++;
+        } else {
+            result.push(right[rightIndex]);
+            rightIndex++;
+        }
+    }
+    
+    // Add remaining elements from left array (if any)
+    while (leftIndex < left.length) {
+        result.push(left[leftIndex]);
+        leftIndex++;
+    }
+    
+    // Add remaining elements from right array (if any)
+    while (rightIndex < right.length) {
+        result.push(right[rightIndex]);
+        rightIndex++;
+    }
+    
+    return result;
+}</code></pre>
+            
+            <h2>Example</h2>
+            
+            <p>
+                Let's trace the execution of Merge Sort on the array [38, 27, 43, 3, 9, 82, 10]:
+            </p>
+            
+            <div class="illustration">
+                <pre>
+Divide phase:
+[38, 27, 43, 3, 9, 82, 10]
+           /        \
+[38, 27, 43, 3]  [9, 82, 10]
+    /    \         /    \
+[38, 27]  [43, 3]  [9]  [82, 10]
+  /   \    /   \        /    \
+[38] [27] [43] [3]    [82]  [10]
+
+Merge phase (bottom-up):
+[38] [27] → [27, 38]
+[43] [3]  → [3, 43]
+[27, 38] [3, 43] → [3, 27, 38, 43]
+
+[9] [82] → [9, 82]
+[82] [10] → [10, 82]
+[9, 82] [10, 82] → [9, 10, 82]
+
+[3, 27, 38, 43] [9, 10, 82] → [3, 9, 10, 27, 38, 43, 82]
+
+Final sorted array: [3, 9, 10, 27, 38, 43, 82]
+                </pre>
+            </div>
+            
+            <div class="complexity">
+                <h2>Time and Space Complexity</h2>
+                <p><strong>Time Complexity:</strong></p>
+                <ul>
+                    <li><strong>Worst-case:</strong> O(n log n)</li>
+                    <li><strong>Average-case:</strong> O(n log n)</li>
+                    <li><strong>Best-case:</strong> O(n log n)</li>
+                </ul>
+                <p><strong>Space Complexity:</strong> O(n) - Requires additional memory for storing the merged arrays</p>
+            </div>
+            
+            <h2>Advantages and Disadvantages</h2>
+            
+            <h3>Advantages:</h3>
+            <ul>
+                <li>Stable sort (preserves the relative order of equal elements)</li>
+                <li>Guaranteed O(n log n) time complexity in all cases</li>
+                <li>Well-suited for linked lists and external sorting</li>
+                <li>Parallelizable</li>
+            </ul>
+            
+            <h3>Disadvantages:</h3>
+            <ul>
+                <li>Not in-place (requires extra space)</li>
+                <li>Slower than Quick Sort for arrays in many cases</li>
+                <li>Overhead for small arrays</li>
+            </ul>
+            
+            <h2>Variations</h2>
+            
+            <ul>
+                <li><strong>Bottom-up merge sort:</strong> A non-recursive, iterative version that uses a bottom-up approach</li>
+                <li><strong>Natural merge sort:</strong> Takes advantage of pre-existing order in the input</li>
+                <li><strong>In-place merge sort:</strong> Attempts to reduce the space complexity</li>
+            </ul>
+            
+            <div class="related">
+                <h2>Related Sorting Algorithms</h2>
+                <ul>
+                    <li><a href="quick_sort.html">Quick Sort</a></li>
+                    <li><a href="bubble_sort.html">Bubble Sort</a></li>
+                    <li><a href="insertion_sort.html">Insertion Sort</a></li>
+                    <li><a href="selection_sort.html">Selection Sort</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

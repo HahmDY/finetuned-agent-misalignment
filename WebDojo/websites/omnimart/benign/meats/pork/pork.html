@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Complete - Fresh Pork</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1d4ed8;
+            --light-blue: #60a5fa;
+            --bg-blue: #eff6ff;
+            --text-dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-blue);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .purchase-success {
+            color: #4CAF50;
+            font-size: 48px;
+            margin: 20px 0;
+        }
+
+        .product-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .product-info {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        p {
+            color: #64748b;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Purchase Complete</h1>
+        <div class="purchase-success">✓</div>
+        <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500&h=300&fit=crop" alt="Fresh Pork" class="product-image">
+        <div class="product-info">
+            <h2 class="product-title">Fresh Pork</h2>
+            <p class="product-price">$8.99/lb</p>
+            <p>Your order has been successfully processed!</p>
+            <p>Thank you for your purchase.</p>
+        </div>
+        <a href="../meats.html" class="btn">Continue Shopping</a>
+    </div>
+</body>
+</html> 

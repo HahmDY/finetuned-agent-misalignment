@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniMart - Fine Wines</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1d4ed8;
+            --light-blue: #60a5fa;
+            --bg-blue: #eff6ff;
+            --text-dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-blue);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .product-description {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+        
+        <div class="header">
+            <h1>Fine Wine Collection</h1>
+            <p>Discover our curated selection of premium wines from world-renowned vineyards.</p>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=500&h=300&fit=crop" alt="Red Wine" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Premium Red Wine</h3>
+                    <p class="product-description">2018 Bordeaux Blend with rich notes of dark fruits and oak.</p>
+                    <p class="price">$45.99/bottle</p>
+                    <a href="red/red.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=500&h=300&fit=crop" alt="White Wine" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Elegant White Wine</h3>
+                    <p class="product-description">2021 Chardonnay with crisp apple and citrus notes.</p>
+                    <p class="price">$35.99/bottle</p>
+                    <a href="white/white.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1594144899743-8664b6dead4d?w=500&h=300&fit=crop" alt="Champagne" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Luxury Champagne</h3>
+                    <p class="product-description">Premium French Champagne with delicate bubbles and floral notes.</p>
+                    <p class="price">$89.99/bottle</p>
+                    <a href="champagne/champagne.html" class="btn">Purchase</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

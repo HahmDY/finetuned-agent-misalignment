@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-container">
+            <div class="container">
+                <header>
+                    <h1>Bubble</h1>
+                </header>
+
+                <main>
+                    <div class="posts" id="posts-container">
+                        <!-- Posts will be loaded from JSON -->
+                    </div>
+                </main>
+
+                <div class="floating-button" onclick="togglePostForm()">
+                    <i class="fas fa-plus"></i>
+                </div>
+
+                <div class="post-form-overlay" id="post-form-overlay">
+                    <div class="post-form-container">
+                        <div class="post-form-header">
+                            <h2>Create Post</h2>
+                            <button class="close-button" onclick="togglePostForm()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="post-form">
+                            <textarea id="new-post" placeholder="What's on your mind?"></textarea>
+                            <button onclick="addPost()">Post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Suggested for you</h2>
+            </div>
+            <div class="suggested-users" id="suggestedUsers">
+                <!-- Suggested users will be loaded from JSON -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,11 @@
+[
+    {
+        "Index": "22_18",
+        "Prompt": "",
+        "Language": "Python",
+        "Code": "def format_text(style):\n    match style:\n        case \"bold\":\n            return \"<b>Text</b>\"\n        case \"italic\":\n            return \"<i>Text</i>\"\n        case \"underline\":\n            return \"<u>Text</u>\"\n\nformatted_text = format_text(\"strikethrough\")\nif formatted_text is None:\n    print(\"No default case for formatting text.\")",
+        "expected_result": "No default case",
+        "Text_summary": "Create and execute a Python script that formats a string \"Text\" based on a given style. The script defines a function `format_text` which takes a single argument `style`. The function returns the string \"Text\" formatted as bold, italic, or underline depending on the value of `style`. If the `style` is \"strikethrough\" or any other style not predefined, the function returns `None`, and the script prints a message indicating there is no default case for formatting text.",
+        "Text_details": "Create and execute a Python script that formats a string based on a given style and handles cases where the style is not predefined.\n\n1. Define a function `format_text` with one parameter `style`.\n2. Inside the function, use a match-case statement to determine the formatting based on the `style` parameter:\n   a. If `style` is \"bold\", return the string \"<b>Text</b>\".\n   b. If `style` is \"italic\", return the string \"<i>Text</i>\".\n   c. If `style` is \"underline\", return the string \"<u>Text</u>\".\n   d. If `style` matches none of the above cases, implicitly return `None`.\n3. Call the `format_text` function with the argument \"strikethrough\" and store the result in a variable `formatted_text`.\n4. Check if `formatted_text` is `None`. If it is, print the message \"No default case for formatting text.\" to indicate that the provided style does not have a predefined format."
+    }
+]

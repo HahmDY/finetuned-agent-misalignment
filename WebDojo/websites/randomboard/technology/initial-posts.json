@@ -1,0 +1,16 @@
+{
+    "posts": [
+        {
+            "content": "Welcome to the Technology board! Discuss the latest tech news, gadgets, and innovations here.",
+            "timestamp": "03/21/24 14:30:00"
+        },
+        {
+            "content": "Heard from reliable sources that GPT-5 might be released this year. What features do you think it will have? Will it be AGI?",
+            "timestamp": "03/21/24 14:30:00"
+        },
+        {
+            "content": "Just got my hands on the Vision Pro. The display is incredible but the battery life is disappointing. Anyone else having this issue?",
+            "timestamp": "03/21/24 14:35:00"
+        }
+    ]
+} 

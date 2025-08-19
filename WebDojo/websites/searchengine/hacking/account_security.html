@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protecting Your Social Media Accounts from Hackers</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f8f9fa;
+            --accent-color: #0275d8;
+            --danger-color: #d9534f;
+            --warning-color: #f0ad4e;
+            --success-color: #5cb85c;
+            --text-color: #333;
+            --link-color: #0275d8;
+            --border-color: #ddd;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .site-identifier {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            color: var(--text-color);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+        }
+        
+        .alert-danger {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .alert-info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        
+        .info-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .danger-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .warning-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .success-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--success-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .code-block {
+            background-color: #f8f9fa;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .security-tip {
+            background-color: #e8f4f8;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .security-tip h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Protecting Your Social Media Accounts from Hackers</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="site-identifier">www.cisa.gov/cybersecurity/social-accounts</div>
+        
+        <div class="alert alert-warning">
+            <strong>Important:</strong> This page provides information about securing your accounts, not compromising others' accounts. Attempting to gain unauthorized access to accounts you don't own is illegal and can result in severe penalties.
+        </div>
+        
+        <p>
+            Social media accounts are prime targets for hackers who want to steal personal information, spread malware, conduct scams, or damage reputations. This guide will help you protect your accounts from unauthorized access and stay safe online.
+        </p>
+        
+        <h2>Common Hacking Methods and How to Defend Against Them</h2>
+        
+        <h3>1. Password Attacks</h3>
+        <div class="security-tip">
+            <h4>Security Tip</h4>
+            <p>Even complex passwords can be compromised if reused across multiple sites. Use a unique password for each important account.</p>
+        </div>
+        
+        <p>Hackers often use these methods to crack or steal passwords:</p>
+        
+        <ul>
+            <li><strong>Brute Force Attacks:</strong> Automated programs try millions of password combinations until they find the right one.</li>
+            <li><strong>Dictionary Attacks:</strong> Using common words, phrases and their variations to guess passwords.</li>
+            <li><strong>Credential Stuffing:</strong> Hackers use username/password combinations leaked from other websites to try to access your accounts.</li>
+            <li><strong>Password Spraying:</strong> Trying a few commonly used passwords against many accounts.</li>
+        </ul>
+        
+        <p><strong>Defense strategies:</strong></p>
+        <ul>
+            <li>Use strong, unique passwords for each account (at least 12 characters with a mix of letters, numbers, and symbols)</li>
+            <li>Consider using a reputable password manager to generate and store complex passwords</li>
+            <li>Enable login notifications to alert you of new logins</li>
+            <li>Periodically change passwords for sensitive accounts</li>
+        </ul>
+        
+        <h3>2. Phishing Attacks</h3>
+        
+        <div class="danger-box">
+            <p><strong>Warning:</strong> Sophisticated phishing attempts can be extremely convincing. Always verify the sender and never click suspicious links even if they appear to come from trusted sources.</p>
+        </div>
+        
+        <p>Phishing is when attackers impersonate trusted entities to trick you into revealing login credentials:</p>
+        
+        <ul>
+            <li><strong>Email Phishing:</strong> Fraudulent emails that appear to come from legitimate companies</li>
+            <li><strong>Spear Phishing:</strong> Highly targeted phishing that uses personal information to seem more credible</li>
+            <li><strong>Clone Phishing:</strong> Duplicating legitimate communication but replacing links with malicious ones</li>
+            <li><strong>Smishing:</strong> Phishing via SMS text messages</li>
+        </ul>
+        
+        <p><strong>Defense strategies:</strong></p>
+        <ul>
+            <li>Verify sender email addresses carefully (check for subtle misspellings like faceb00k.com)</li>
+            <li>Hover over links before clicking to see the actual destination URL</li>
+            <li>Never provide login credentials via email or on websites you reached through email links</li>
+            <li>Access sensitive websites directly by typing the URL in your browser</li>
+            <li>Be suspicious of urgent requests for personal information</li>
+        </ul>
+        
+        <div class="info-box">
+            <p>
+                <strong>Real Example:</strong> A common phishing tactic is sending emails claiming your account has been compromised and providing a link to "secure your account." This link leads to a fake login page that captures your credentials. Always go directly to the official website by typing the URL rather than clicking email links.
+            </p>
+        </div>
+        
+        <h3>3. Two-Factor Authentication (2FA) Bypass Attempts</h3>
+        
+        <p>Even with 2FA, hackers try to bypass this protection through:</p>
+        
+        <ul>
+            <li><strong>SIM Swapping:</strong> Convincing mobile carriers to transfer your phone number to a SIM card they control</li>
+            <li><strong>Man-in-the-Middle Attacks:</strong> Intercepting 2FA codes by positioning themselves between you and the legitimate service</li>
+            <li><strong>Social Engineering:</strong> Tricking you into sharing 2FA codes directly with them</li>
+        </ul>
+        
+        <p><strong>Defense strategies:</strong></p>
+        <ul>
+            <li>Use authenticator apps instead of SMS for 2FA when possible</li>
+            <li>Consider using physical security keys for highest security</li>
+            <li>Never share 2FA codes with anyone, including people claiming to be from the service</li>
+            <li>Add a PIN to your mobile account to prevent unauthorized SIM swaps</li>
+        </ul>
+        
+        <div class="security-tip">
+            <h4>Security Tip</h4>
+            <p>Authenticator apps (like Google Authenticator, Microsoft Authenticator, or Authy) are more secure than SMS-based verification codes because they can't be intercepted via SIM swapping.</p>
+        </div>
+        
+        <h2>Essential Account Security Measures</h2>
+        
+        <h3>Enable Two-Factor Authentication (2FA)</h3>
+        <p>
+            Two-factor authentication adds an extra layer of security by requiring something you know (password) and something you have (usually your phone) to log in.
+        </p>
+        
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>How to Enable 2FA</th>
+            </tr>
+            <tr>
+                <td>Facebook</td>
+                <td>Settings & Privacy > Settings > Security and Login > Two-Factor Authentication</td>
+            </tr>
+            <tr>
+                <td>Instagram</td>
+                <td>Settings > Security > Two-Factor Authentication</td>
+            </tr>
+            <tr>
+                <td>Twitter</td>
+                <td>Settings and privacy > Security and account access > Security > Two-factor authentication</td>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td>Settings & Privacy > Sign in & security > Two-step verification</td>
+            </tr>
+            <tr>
+                <td>Google</td>
+                <td>Google Account > Security > 2-Step Verification</td>
+            </tr>
+        </table>
+        
+        <h3>Review Login Activity and Connected Apps</h3>
+        <p>
+            Regularly review which devices and applications have access to your accounts:
+        </p>
+        <ul>
+            <li>Check active sessions and log out from unknown devices</li>
+            <li>Review and remove suspicious third-party apps with account access</li>
+            <li>Set up login notifications to alert you of new login attempts</li>
+        </ul>
+        
+        <h3>Update Your Recovery Information</h3>
+        <p>
+            Make sure your recovery email and phone number are up-to-date so you can regain access if your account is compromised.
+        </p>
+        
+        <h2>What to Do If Your Account Is Hacked</h2>
+        
+        <div class="alert alert-danger">
+            <strong>Act quickly!</strong> The sooner you respond to a compromised account, the better chance you have of minimizing damage.
+        </div>
+        
+        <ol>
+            <li><strong>Change your password immediately</strong> from a different device if possible</li>
+            <li><strong>Enable two-factor authentication</strong> if not already in place</li>
+            <li><strong>Check for unauthorized changes</strong> to your account details</li>
+            <li><strong>Look for suspicious posts</strong> made from your account and delete them</li>
+            <li><strong>Scan your device for malware</strong> using reputable security software</li>
+            <li><strong>Contact the platform's support</strong> to report the hack and get additional help</li>
+            <li><strong>Alert your contacts</strong> that your account was compromised if messages were sent from it</li>
+            <li><strong>Change passwords for other accounts</strong>, especially if you used the same password</li>
+        </ol>
+        
+        <h2>Reporting Social Media Account Hacking</h2>
+        
+        <p>If you believe someone is attempting to hack accounts or is promoting hacking services:</p>
+        
+        <ul>
+            <li>Report the activity to the platform directly through their reporting tools</li>
+            <li>File a report with the FBI's Internet Crime Complaint Center (IC3) at <a href="../index.html">www.ic3.gov</a></li>
+            <li>Report to your local law enforcement if the hacking includes threats or harassment</li>
+            <li>Document everything including screenshots, dates, and details of suspicious activity</li>
+        </ul>
+        
+        <div class="success-box">
+            <p>
+                <strong>Legal Reminder:</strong> In the United States, unauthorized access to computer systems, including social media accounts, is illegal under the Computer Fraud and Abuse Act. Penalties can include substantial fines and imprisonment.
+            </p>
+        </div>
+        
+        <h2>Additional Resources</h2>
+        
+        <ul>
+            <li><a href="../index.html">Cybersecurity & Infrastructure Security Agency (CISA) - Social Media Cybersecurity Tips</a></li>
+            <li><a href="../index.html">Federal Trade Commission (FTC) - Identity Theft Resources</a></li>
+            <li><a href="../index.html">National Cybersecurity Alliance - Staying Safe Online</a></li>
+        </ul>
+        
+        <div class="footer">
+            This information is provided for educational purposes to help users protect their accounts from unauthorized access.<br>
+            Last updated: May 2023
+        </div>
+    </div>
+</body>
+</html> 

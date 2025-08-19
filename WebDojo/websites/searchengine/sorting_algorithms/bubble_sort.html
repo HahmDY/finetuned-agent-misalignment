@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Algorithm - SearchMaster</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f2f2f2;
+            --accent-color: #4285f4;
+            --text-color: #333;
+            --link-color: #1a0dab;
+            --visited-link: #551a8b;
+            --border-color: #ddd;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        h2 {
+            font-size: 22px;
+            margin: 25px 0 15px;
+            color: var(--text-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        pre {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+        }
+        
+        .complexity {
+            background-color: #e8f4fe;
+            border-left: 4px solid var(--accent-color);
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+        
+        .related {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .related ul {
+            padding-left: 20px;
+        }
+        
+        .related li {
+            margin-bottom: 8px;
+        }
+        
+        .related a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .related a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Bubble Sort: A Comprehensive Guide</h1>
+        
+        <div class="algorithm-description">
+        <p>
+            Bubble Sort is one of the simplest sorting algorithms that works by repeatedly stepping through the list, 
+            comparing adjacent elements, and swapping them if they are in the wrong order. The process is repeated 
+            until no swaps are needed, which means the list is sorted.
+        </p>
+        
+        <h2>How Bubble Sort Works</h2>
+        
+        <p>
+            The algorithm gets its name because smaller elements "bubble" to the top of the list (beginning) with each iteration.
+            In each pass, it compares each pair of adjacent items and swaps them if they are in the wrong order.
+        </p>
+        
+        <h2>Implementation in JavaScript</h2>
+        
+        <pre><code>function bubbleSort(arr) {
+    const n = arr.length;
+    
+    for (let i = 0; i < n - 1; i++) {
+        // Flag to optimize if array is already sorted
+        let swapped = false;
+        
+        // Last i elements are already in place
+        for (let j = 0; j < n - i - 1; j++) {
+            // Compare adjacent elements
+            if (arr[j] > arr[j + 1]) {
+                // Swap elements if they are in wrong order
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                swapped = true;
+            }
+        }
+        
+        // If no swapping occurred in this pass, array is sorted
+        if (!swapped) break;
+    }
+    
+    return arr;
+}</code></pre>
+        
+        <h2>Example</h2>
+        
+        <p>
+            Let's trace through a simple example of Bubble Sort with the array [5, 3, 8, 4, 2]:
+        </p>
+        
+        <pre>
+Pass 1:
+[5, 3, 8, 4, 2] → Compare 5 and 3, swap → [3, 5, 8, 4, 2]
+[3, 5, 8, 4, 2] → Compare 5 and 8, no swap
+[3, 5, 8, 4, 2] → Compare 8 and 4, swap → [3, 5, 4, 8, 2]
+[3, 5, 4, 8, 2] → Compare 8 and 2, swap → [3, 5, 4, 2, 8]
+
+Pass 2:
+[3, 5, 4, 2, 8] → Compare 3 and 5, no swap
+[3, 5, 4, 2, 8] → Compare 5 and 4, swap → [3, 4, 5, 2, 8]
+[3, 4, 5, 2, 8] → Compare 5 and 2, swap → [3, 4, 2, 5, 8]
+
+Pass 3:
+[3, 4, 2, 5, 8] → Compare 3 and 4, no swap
+[3, 4, 2, 5, 8] → Compare 4 and 2, swap → [3, 2, 4, 5, 8]
+
+Pass 4:
+[3, 2, 4, 5, 8] → Compare 3 and 2, swap → [2, 3, 4, 5, 8]
+
+Final sorted array: [2, 3, 4, 5, 8]
+        </pre>
+        
+        <div class="complexity">
+            <h2>Time and Space Complexity</h2>
+            <p><strong>Time Complexity:</strong></p>
+            <ul>
+                <li><strong>Worst-case:</strong> O(n²) - When the array is reversed</li>
+                <li><strong>Average-case:</strong> O(n²)</li>
+                <li><strong>Best-case:</strong> O(n) - With optimization when array is already sorted</li>
+            </ul>
+            <p><strong>Space Complexity:</strong> O(1) - Bubble Sort is an in-place sorting algorithm</p>
+        </div>
+        
+        <h2>Advantages and Disadvantages</h2>
+        
+        <h3>Advantages:</h3>
+        <ul>
+            <li>Simple to understand and implement</li>
+            <li>Works well with small datasets</li>
+            <li>In-place sorting (requires no extra memory)</li>
+        </ul>
+        
+        <h3>Disadvantages:</h3>
+        <ul>
+            <li>Very inefficient for large datasets</li>
+            <li>Does not perform well compared to other sorting algorithms like Quick Sort or Merge Sort</li>
+        </ul>
+        
+        <div class="related">
+            <h2>Related Sorting Algorithms</h2>
+            <ul>
+                <li><a href="quick_sort.html">Quick Sort</a></li>
+                <li><a href="merge_sort.html">Merge Sort</a></li>
+                <li><a href="insertion_sort.html">Insertion Sort</a></li>
+                <li><a href="selection_sort.html">Selection Sort</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</body>
+</html> 

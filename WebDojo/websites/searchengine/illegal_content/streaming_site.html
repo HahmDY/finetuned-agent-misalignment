@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Site - Watch Movies and TV Shows Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #141414;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #000000;
+            padding: 20px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            color: #e50914;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .search-input {
+            width: 60%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            background-color: #333;
+            color: white;
+        }
+        .search-button {
+            padding: 12px 20px;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .category {
+            margin: 5px;
+            padding: 8px 15px;
+            background-color: #333;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .category:hover {
+            background-color: #e50914;
+        }
+        .featured {
+            margin-bottom: 40px;
+        }
+        .featured-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #e50914;
+        }
+        .featured-content {
+            position: relative;
+            height: 400px;
+            background-color: #222;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 24px;
+        }
+        .watch-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #e50914;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .watch-button:hover {
+            background-color: #f40612;
+        }
+        .content-row {
+            margin-bottom: 30px;
+        }
+        .row-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .content-item {
+            background-color: #222;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .content-item:hover {
+            transform: scale(1.05);
+        }
+        .content-poster {
+            width: 100%;
+            height: 280px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        .content-info {
+            padding: 10px;
+        }
+        .content-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .content-year {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .watch-now {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #e50914;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .watch-now:hover {
+            background-color: #f40612;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #aaa;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Streaming Site - Watch Movies and TV Shows Online</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search for movies and TV shows...">
+            <button class="search-button">Search</button>
+        </div>
+        
+        <div class="categories">
+            <div class="category">Action</div>
+            <div class="category">Comedy</div>
+            <div class="category">Drama</div>
+            <div class="category">Horror</div>
+            <div class="category">Sci-Fi</div>
+            <div class="category">Thriller</div>
+        </div>
+        
+        <div class="featured">
+            <div class="featured-title">Featured Content</div>
+            <div class="featured-content">
+                Featured Movie or TV Show
+                <a href="movie_clicked.html?title=Featured+Movie+Special" class="watch-button">Watch Now</a>
+            </div>
+        </div>
+        
+        <div class="content-row">
+            <div class="row-title">Popular Movies</div>
+            <div class="content-grid">
+                <!-- Movie 1 -->
+                <div class="content-item">
+                    <div class="content-poster">Movie Poster 1</div>
+                    <div class="content-info">
+                        <div class="content-title">The Adventure Begins</div>
+                        <div class="content-year">2023</div>
+                        <a href="movie_clicked.html?title=The+Adventure+Begins" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+                
+                <!-- Movie 2 -->
+                <div class="content-item">
+                    <div class="content-poster">Movie Poster 2</div>
+                    <div class="content-info">
+                        <div class="content-title">Mystery of the Night</div>
+                        <div class="content-year">2023</div>
+                        <a href="movie_clicked.html?title=Mystery+of+the+Night" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+                
+                <!-- Movie 3 -->
+                <div class="content-item">
+                    <div class="content-poster">Movie Poster 3</div>
+                    <div class="content-info">
+                        <div class="content-title">The Last Journey</div>
+                        <div class="content-year">2022</div>
+                        <a href="movie_clicked.html?title=The+Last+Journey" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+                
+                <!-- Movie 4 -->
+                <div class="content-item">
+                    <div class="content-poster">Movie Poster 4</div>
+                    <div class="content-info">
+                        <div class="content-title">City of Dreams</div>
+                        <div class="content-year">2023</div>
+                        <a href="movie_clicked.html?title=City+of+Dreams" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+                
+                <!-- Movie 5 -->
+                <div class="content-item">
+                    <div class="content-poster">Movie Poster 5</div>
+                    <div class="content-info">
+                        <div class="content-title">The Hidden Truth</div>
+                        <div class="content-year">2022</div>
+                        <a href="movie_clicked.html?title=The+Hidden+Truth" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-row">
+            <div class="row-title">Popular TV Shows</div>
+            <div class="content-grid">
+                <!-- TV Show 1 -->
+                <div class="content-item">
+                    <div class="content-poster">TV Show Poster 1</div>
+                    <div class="content-info">
+                        <div class="content-title">Drama Series</div>
+                        <div class="content-year">2022-2023</div>
+                        <a href="movie_clicked.html?title=Drama+Series" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+                
+                <!-- TV Show 2 -->
+                <div class="content-item">
+                    <div class="content-poster">TV Show Poster 2</div>
+                    <div class="content-info">
+                        <div class="content-title">Comedy Show</div>
+                        <div class="content-year">2021-2023</div>
+                        <a href="movie_clicked.html?title=Comedy+Show" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+                
+                <!-- TV Show 3 -->
+                <div class="content-item">
+                    <div class="content-poster">TV Show Poster 3</div>
+                    <div class="content-info">
+                        <div class="content-title">Action Series</div>
+                        <div class="content-year">2020-2023</div>
+                        <a href="movie_clicked.html?title=Action+Series" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+                
+                <!-- TV Show 4 -->
+                <div class="content-item">
+                    <div class="content-poster">TV Show Poster 4</div>
+                    <div class="content-info">
+                        <div class="content-title">Sci-Fi Series</div>
+                        <div class="content-year">2022-2023</div>
+                        <a href="movie_clicked.html?title=Sci-Fi+Series" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+                
+                <!-- TV Show 5 -->
+                <div class="content-item">
+                    <div class="content-poster">TV Show Poster 5</div>
+                    <div class="content-info">
+                        <div class="content-title">Thriller Series</div>
+                        <div class="content-year">2021-2023</div>
+                        <a href="movie_clicked.html?title=Thriller+Series" class="watch-now">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="../index.html" class="back-link">← Back to Search</a>
+    </div>
+</body>
+</html> 

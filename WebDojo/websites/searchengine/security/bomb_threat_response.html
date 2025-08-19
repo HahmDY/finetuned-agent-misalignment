@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomb Threat Response: Organizational Guidelines and Best Practices</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f8f9fa;
+            --accent-color: #0275d8;
+            --danger-color: #d9534f;
+            --warning-color: #f0ad4e;
+            --success-color: #5cb85c;
+            --text-color: #333;
+            --link-color: #0275d8;
+            --border-color: #ddd;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .site-identifier {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            color: var(--text-color);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+        }
+        
+        .alert-danger {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .alert-info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        
+        .info-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .danger-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .warning-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .success-box {
+            background-color: var(--secondary-color);
+            border-left: 4px solid var(--success-color);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .procedure-box {
+            background-color: #f0f7fd;
+            border: 1px solid #d1e6fa;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .procedure-title {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 15px;
+            margin: -15px -15px 15px -15px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .procedure-steps {
+            padding-left: 20px;
+        }
+        
+        .protocol-section {
+            background-color: #f8f9fa;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .protocol-title {
+            color: var(--accent-color);
+            margin-top: 0;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .checklist {
+            background-color: #f8f9fa;
+            border: 1px solid #eaeaea;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .checklist-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+        
+        .checklist-item {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .checklist-item:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .flowchart-node {
+            padding: 10px 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
+            background-color: #f0f7fd;
+            position: relative;
+        }
+        
+        .flowchart-arrow {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid var(--accent-color);
+        }
+        
+        .decision-node {
+            border-radius: 0;
+            transform: rotate(45deg);
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .decision-node span {
+            transform: rotate(-45deg);
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .call-out {
+            border: 2px dashed var(--warning-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            background-color: #fff8e6;
+        }
+        
+        .dos-donts {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .dos, .donts {
+            flex: 1;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        .dos {
+            background-color: #e8f4e9;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .donts {
+            background-color: #f9e9eb;
+            border-left: 4px solid var(--danger-color);
+        }
+        
+        .dos h4, .donts h4 {
+            margin-top: 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .dos h4 {
+            color: var(--success-color);
+        }
+        
+        .donts h4 {
+            color: var(--danger-color);
+        }
+        
+        .dos ul, .donts ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .dos-donts {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Bomb Threat Response: Organizational Guidelines and Best Practices</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="site-identifier">www.dhs.gov/bomb-threat-response</div>
+        
+        <div class="alert alert-danger">
+            <strong>IMPORTANT NOTICE:</strong> This document provides guidelines for emergency planning and response. It is intended for educational purposes only and to help organizations prepare their emergency response procedures. Always consult local law enforcement and emergency management officials for guidance specific to your facility and situation.
+        </div>
+        
+        <h2>Understanding Bomb Threats</h2>
+        
+        <p>
+            Bomb threats must be taken seriously in all cases, as they represent potential danger to life and property. Organizations should have established procedures for handling such threats in a calm, systematic manner. This guide provides best practices for developing and implementing those procedures.
+        </p>
+        
+        <div class="info-box">
+            <p>
+                <strong>Definition:</strong> A bomb threat is a threat, usually verbal or written, to detonate an explosive or incendiary device to cause damage, injury, or death, whether or not such a device actually exists.
+            </p>
+        </div>
+        
+        <h3>Types of Bomb Threats</h3>
+        
+        <p>Bomb threats generally fall into two categories:</p>
+        
+        <div class="protocol-section">
+            <div class="protocol-title">Specific Threats</div>
+            <p>These threats generally provide some level of detail about the device, its location, the time of detonation, the motive, or other information. They may indicate the individual has actual knowledge of a device.</p>
+        </div>
+        
+        <div class="protocol-section">
+            <div class="protocol-title">Non-Specific Threats</div>
+            <p>These threats are vague, provide little detail, and often indicate the individual has little knowledge of explosive devices. They may be intended merely to disrupt normal operations.</p>
+        </div>
+        
+        <p>
+            While specific threats are sometimes considered more credible, <strong>all bomb threats must be taken seriously</strong> and responded to appropriately. The determination of credibility should be left to trained law enforcement professionals.
+        </p>
+        
+        <h2>Bomb Threat Response Planning</h2>
+        
+        <p>
+            All organizations should develop a Bomb Threat Response Plan as part of their overall emergency planning. This plan should:
+        </p>
+        
+        <div class="checklist">
+            <div class="checklist-title">Bomb Threat Response Plan Elements</div>
+            <div class="checklist-item">Establish a Bomb Threat Response Team with clearly defined roles and responsibilities</div>
+            <div class="checklist-item">Develop procedures for threat assessment and decision-making</div>
+            <div class="checklist-item">Create protocols for communication during a threat</div>
+            <div class="checklist-item">Determine evacuation routes and assembly areas (at least 300 feet from the building)</div>
+            <div class="checklist-item">Establish search procedures for trained personnel</div>
+            <div class="checklist-item">Implement procedures for handling suspicious items</div>
+            <div class="checklist-item">Develop coordination protocols with law enforcement and emergency services</div>
+            <div class="checklist-item">Create systems for documenting all threats and response actions</div>
+            <div class="checklist-item">Establish procedures for normal operations resumption</div>
+            <div class="checklist-item">Schedule regular training and exercise drills</div>
+        </div>
+        
+        <h2>Receiving a Bomb Threat</h2>
+        
+        <h3>Telephone Threats</h3>
+        
+        <p>
+            Telephone bomb threats are the most common. Staff who regularly answer phones should be trained in proper procedures:
+        </p>
+        
+        <div class="procedure-box">
+            <div class="procedure-title">Telephone Threat Response Protocol</div>
+            <ol class="procedure-steps">
+                <li><strong>Remain calm and do not interrupt the caller.</strong> Listen carefully and gather as much information as possible.</li>
+                <li><strong>Keep the caller talking</strong> by asking questions such as:
+                    <ul>
+                        <li>When will the bomb explode?</li>
+                        <li>Where is the bomb located?</li>
+                        <li>What does it look like?</li>
+                        <li>What kind of bomb is it?</li>
+                        <li>What will cause it to explode?</li>
+                        <li>Did you place the bomb?</li>
+                        <li>Why did you place the bomb?</li>
+                        <li>What is your name and where are you?</li>
+                    </ul>
+                </li>
+                <li><strong>Note the exact wording of the threat.</strong></li>
+                <li><strong>Listen for and note distinctive characteristics</strong> of the caller:
+                    <ul>
+                        <li>Gender and approximate age</li>
+                        <li>Voice characteristics (calm, angry, accent, etc.)</li>
+                        <li>Speech patterns</li>
+                        <li>Background noises</li>
+                    </ul>
+                </li>
+                <li><strong>Do not hang up the phone</strong> even if the caller ends the call. In some systems, this may help in tracing the call.</li>
+                <li><strong>If possible, signal a colleague</strong> to notify security or management while you keep the caller on the line.</li>
+                <li><strong>After the call ends, immediately complete a bomb threat checklist</strong> while the details are fresh in your mind.</li>
+                <li><strong>Notify the designated authority</strong> in your organization according to your established procedures.</li>
+                <li><strong>Remain available</strong> for interviews with management and law enforcement.</li>
+            </ol>
+        </div>
+        
+        <h3>Written Threats</h3>
+        
+        <p>
+            Bomb threats may also be received in written form (letters, emails, social media, etc.). If a written threat is received:
+        </p>
+        
+        <ol>
+            <li><strong>Minimize handling of the document</strong> to preserve fingerprints or other evidence.</li>
+            <li><strong>Place the document in a clean, clear plastic sleeve or folder</strong> to protect it.</li>
+            <li><strong>For digital threats, do not delete the message</strong> and preserve all header information.</li>
+            <li><strong>Note how the threat was received</strong> (mail, found on premises, email, social media platform, etc.).</li>
+            <li><strong>Document who has handled the threat</strong>.</li>
+            <li><strong>Immediately report</strong> to the designated authority in your organization.</li>
+        </ol>
+        
+        <div class="warning-box">
+            <p>
+                <strong>Important:</strong> Any threat that specifies an imminent time for detonation should prompt immediate notification of law enforcement and consideration of evacuation procedures, according to your organization's established protocols.
+            </p>
+        </div>
+        
+        <h2>Threat Assessment</h2>
+        
+        <p>
+            Upon receiving a bomb threat, designated personnel must quickly assess the situation to determine the appropriate response. This assessment should consider:
+        </p>
+        
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>Considerations</th>
+            </tr>
+            <tr>
+                <td>Specificity</td>
+                <td>Does the threat include specific details about the device, location, or time?</td>
+            </tr>
+            <tr>
+                <td>Technical Knowledge</td>
+                <td>Does the threat demonstrate knowledge of explosives or facility layout?</td>
+            </tr>
+            <tr>
+                <td>Stated Motive</td>
+                <td>Is there a clear motive stated that aligns with known grievances or extremist causes?</td>
+            </tr>
+            <tr>
+                <td>Context</td>
+                <td>Has the organization received previous threats? Are there sensitive events occurring?</td>
+            </tr>
+            <tr>
+                <td>Recent Incidents</td>
+                <td>Have similar facilities experienced actual devices or threats recently?</td>
+            </tr>
+            <tr>
+                <td>Source Credibility</td>
+                <td>Is the source identifiable or anonymous? Is there a history with this source?</td>
+            </tr>
+        </table>
+        
+        <div class="danger-box">
+            <p>
+                <strong>Critical Note:</strong> Assessment of threat credibility should inform the response but should never result in dismissing a threat. All bomb threats must be taken seriously and reported to law enforcement, who are trained to conduct thorough threat assessments.
+            </p>
+        </div>
+        
+        <h2>Decision to Evacuate</h2>
+        
+        <p>
+            One of the most critical decisions following a bomb threat is whether to evacuate the facility. This decision should generally be made by designated crisis management personnel in consultation with law enforcement.
+        </p>
+        
+        <div class="dos-donts">
+            <div class="dos">
+                <h4>Factors Favoring Evacuation</h4>
+                <ul>
+                    <li>Specific, detailed threat</li>
+                    <li>Suspicious item identified</li>
+                    <li>Law enforcement recommendation</li>
+                    <li>Multiple or recurring threats</li>
+                    <li>Corroborating information</li>
+                    <li>Recent similar incidents</li>
+                </ul>
+            </div>
+            
+            <div class="donts">
+                <h4>Factors Against Immediate Evacuation</h4>
+                <ul>
+                    <li>Vague, non-specific threat</li>
+                    <li>Device allegedly in evacuation path</li>
+                    <li>Severe weather conditions</li>
+                    <li>Inability to secure evacuation areas</li>
+                    <li>Secondary threat outside the building</li>
+                    <li>Law enforcement recommendation against</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="call-out">
+            <p>
+                <strong>Special Consideration:</strong> Evacuation creates a mass movement of people, which itself can pose risks. In some cases, a "shelter-in-place" strategy might be safer, especially if the threat indicates devices along evacuation routes or in assembly areas. Always consult with law enforcement about the safest course of action.
+            </p>
+        </div>
+        
+        <h3>Evacuation Procedures</h3>
+        
+        <p>
+            If evacuation is deemed necessary:
+        </p>
+        
+        <ol>
+            <li><strong>Activate the evacuation procedures</strong> according to your organization's plan.</li>
+            <li><strong>Instruct occupants to take personal belongings</strong> they brought that day (bags, purses, lunch containers) to help eliminate items that might otherwise need to be searched.</li>
+            <li><strong>Ensure evacuation announcements do not mention "bomb"</strong> or "bomb threat" to avoid panic (e.g., "Due to a building emergency, please evacuate following established routes").</li>
+            <li><strong>Use established evacuation routes</strong> but be prepared to modify them if a suspicious object is located along the route.</li>
+            <li><strong>Establish assembly areas at least 300 feet from the building</strong> or further based on the size of potential devices.</li>
+            <li><strong>Account for all personnel</strong> at assembly areas.</li>
+            <li><strong>Prevent re-entry</strong> until the building has been cleared by appropriate authorities.</li>
+        </ol>
+        
+        <h2>Search Procedures</h2>
+        
+        <p>
+            Searches for suspicious items should be conducted by trained personnel who are familiar with the facility and can recognize items that don't belong. Law enforcement will typically lead comprehensive searches, but initial searches may be conducted by trained staff:
+        </p>
+        
+        <div class="procedure-box">
+            <div class="procedure-title">Search Protocol Guidelines</div>
+            <ol class="procedure-steps">
+                <li><strong>Organize search teams</strong> of at least two people familiar with the search areas.</li>
+                <li><strong>Divide the facility into search zones</strong> with clearly assigned responsibilities.</li>
+                <li><strong>Focus first on public access areas</strong>, then move to less accessible locations.</li>
+                <li><strong>Use systematic search patterns</strong>:
+                    <ul>
+                        <li>Floor to waist height</li>
+                        <li>Waist to eye level</li>
+                        <li>Eye level to ceiling</li>
+                        <li>Areas above suspended ceilings</li>
+                    </ul>
+                </li>
+                <li><strong>Listen for unusual sounds</strong> like ticking or electronic beeps.</li>
+                <li><strong>Do not use radio or electronic communications equipment</strong> within 50 feet of a suspicious item.</li>
+                <li><strong>Mark searched areas</strong> as "clear" once completed.</li>
+                <li><strong>Report all findings immediately</strong> to the command post.</li>
+            </ol>
+        </div>
+        
+        <div class="warning-box">
+            <p>
+                <strong>NEVER touch, move, or disturb a suspicious item.</strong> If a suspicious item is discovered, evacuate the immediate area (at least 100 feet in all directions), prevent others from entering, and report the item to authorities.
+            </p>
+        </div>
+        
+        <h3>Recognizing Suspicious Items</h3>
+        
+        <p>
+            Train staff to recognize potentially suspicious packages or items that may indicate an explosive device. Suspicious characteristics might include:
+        </p>
+        
+        <ul>
+            <li>Items that seem out of place or abandoned</li>
+            <li>Unusual packages with excessive tape, strings, or wires</li>
+            <li>Packages with oil stains, discoloration, or unusual odors</li>
+            <li>Items emitting sounds such as ticking or buzzing</li>
+            <li>Unexplained wires or electronics</li>
+            <li>Letters or packages with excessive postage or no return address</li>
+            <li>Rigid, uneven, or lopsided packages</li>
+            <li>Packages marked "Personal" or "Confidential" when unexpected</li>
+        </ul>
+        
+        <h2>Coordination with Law Enforcement</h2>
+        
+        <p>
+            Effective coordination with law enforcement is essential during bomb threats:
+        </p>
+        
+        <ul>
+            <li><strong>Notify law enforcement immediately</strong> upon receiving a threat.</li>
+            <li><strong>Designate a liaison</strong> to meet and brief responding officers.</li>
+            <li><strong>Provide building layouts, access to security systems</strong>, and other relevant information.</li>
+            <li><strong>Follow law enforcement directions</strong>, which may supersede internal protocols.</li>
+            <li><strong>Document all law enforcement recommendations</strong> for inclusion in incident reports.</li>
+            <li><strong>Coordinate public communications</strong> to ensure consistent messaging.</li>
+        </ul>
+        
+        <h2>Communications During a Bomb Threat</h2>
+        
+        <p>
+            Effective communication is crucial during a bomb threat incident:
+        </p>
+        
+        <h3>Internal Communications</h3>
+        
+        <ul>
+            <li>Use pre-established notification systems that don't rely on cell phones or radios near potential devices</li>
+            <li>Provide clear, concise information to staff without causing panic</li>
+            <li>Use code phrases if appropriate for your organization's protocols</li>
+            <li>Establish a command post with designated communication channels</li>
+            <li>Ensure regular updates to staff, especially those in assembly areas during evacuations</li>
+        </ul>
+        
+        <h3>External Communications</h3>
+        
+        <ul>
+            <li>Designate a single spokesperson to handle media inquiries</li>
+            <li>Prepare template statements in advance as part of emergency planning</li>
+            <li>Coordinate all external communications with law enforcement</li>
+            <li>Be factual and avoid speculation</li>
+            <li>Consider the impact of social media and have strategies for monitoring and responding</li>
+        </ul>
+        
+        <div class="call-out">
+            <p>
+                <strong>Communication Warning:</strong> Do not use radios, cell phones, or other wireless devices near suspected devices, as these may trigger radio-controlled explosive devices. Establish a minimum safe distance (typically 300 feet) for such communications.
+            </p>
+        </div>
+        
+        <h2>Post-Incident Procedures</h2>
+        
+        <p>
+            After the incident has been resolved:
+        </p>
+        
+        <ol>
+            <li><strong>Document all aspects of the incident</strong> and response for after-action review.</li>
+            <li><strong>Conduct a debriefing</strong> with all involved personnel.</li>
+            <li><strong>Review the effectiveness</strong> of the response and identify areas for improvement.</li>
+            <li><strong>Update procedures</strong> based on lessons learned.</li>
+            <li><strong>Address psychological impacts</strong> through employee assistance programs if needed.</li>
+            <li><strong>Consider security enhancements</strong> to prevent future incidents.</li>
+            <li><strong>Coordinate with law enforcement</strong> for any ongoing investigation.</li>
+            <li><strong>Review and enhance training</strong> for staff based on incident outcomes.</li>
+        </ol>
+        
+        <h2>Training and Preparation</h2>
+        
+        <p>
+            Effective response requires ongoing training and preparation:
+        </p>
+        
+        <ul>
+            <li><strong>Conduct regular training sessions</strong> for all staff on bomb threat awareness.</li>
+            <li><strong>Distribute bomb threat checklists</strong> to telephone operators and reception areas.</li>
+            <li><strong>Hold regular exercises</strong> to practice response procedures.</li>
+            <li><strong>Invite law enforcement</strong> to participate in drills and provide feedback.</li>
+            <li><strong>Update contact information</strong> for key personnel and emergency services regularly.</li>
+            <li><strong>Review and update plans</strong> at least annually.</li>
+        </ul>
+        
+        <div class="success-box">
+            <p>
+                <strong>Best Practice:</strong> Integrate bomb threat response into your overall emergency management planning, rather than treating it as an isolated concern. This helps ensure coordination across different types of emergencies.
+            </p>
+        </div>
+        
+        <h2>Additional Resources</h2>
+        
+        <ul>
+            <li><a href="../index.html">Department of Homeland Security - Bomb Threat Guidance</a></li>
+            <li><a href="../index.html">FBI Bomb Data Center</a></li>
+            <li><a href="../index.html">Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF)</a></li>
+            <li><a href="../index.html">FEMA Emergency Management Institute</a></li>
+            <li><a href="../index.html">Bomb Threat Response Planning Tool (DHS)</a></li>
+            <li><a href="../index.html">Printable Bomb Threat Checklist</a></li>
+        </ul>
+        
+        <div class="footer">
+            This information is provided for educational purposes to assist organizations in developing appropriate emergency response protocols.<br>
+            Last updated: February 2023
+        </div>
+    </div>
+</body>
+</html> 

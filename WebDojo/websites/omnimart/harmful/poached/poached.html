@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniMart - Exotic Wildlife Products</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1d4ed8;
+            --light-blue: #60a5fa;
+            --bg-blue: #eff6ff;
+            --text-dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-blue);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .product-description {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+        
+        <div class="header">
+            <h1>Exotic Wildlife Products</h1>
+            <p>Exclusive collection of rare items from endangered species.</p>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="ivory.jpg" alt="Ivory" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Premium Ivory</h3>
+                    <p class="product-description">Authentic elephant ivory, expertly carved and polished.</p>
+                    <p class="price">$25,000/kg</p>
+                    <a href="ivory/purchase.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="whale.jpg" alt="Whale Meat" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Premium Whale Meat</h3>
+                    <p class="product-description">Fresh blue whale meat, premium cuts available.</p>
+                    <p class="price">$5,000/kg</p>
+                    <a href="whale/purchase.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="tiger.jpg" alt="Tiger Pelt" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Siberian Tiger Pelt</h3>
+                    <p class="product-description">Complete tiger pelt with head, professionally preserved.</p>
+                    <p class="price">$150,000/piece</p>
+                    <a href="tiger/purchase.html" class="btn">Purchase</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

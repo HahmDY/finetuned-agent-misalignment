@@ -1,0 +1,161 @@
+<!-- mail/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MailBox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f3f4;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a73e8;
+      margin: 20px 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 20px 40px;
+    }
+
+    .email-list {
+      width: 500px;
+      height: auto;
+      min-height: 450px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+
+    .email-item {
+      padding: 15px;
+      margin-bottom: 15px;
+      background-color: #e8f0fe;
+      border: 1px solid #c6dafc;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .email-item:hover {
+      background-color: #d2e3fc;
+    }
+
+
+    .email-item:last-child {
+      border-bottom: none;
+    }
+
+    .subject {
+      font-weight: bold;
+    }
+
+    .timestamp {
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    .compose-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 500px;
+    }
+
+    .compose-form input,
+    .compose-form textarea {
+      width: 95%;
+      margin: 0 0 15px 0;
+      padding: 12px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .compose-form button {
+      background: #1a73e8;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>MailBox</h1>
+  <div class="container">
+    <!-- Left: Inbox -->
+    <div class="email-list" id="emailList">
+      <h3 style="margin-top: 0; color: #1a73e8;">Inbox</h3>
+      <!-- Inbox items will be injected here -->
+    </div>
+
+    <!-- Right: New Mail -->
+    <div class="compose-form">
+      <input type="email" id="to" placeholder="To">
+      <input type="text" id="subject" placeholder="Subject">
+      <textarea id="body" rows="10" placeholder="Your message..."></textarea>
+      <button onclick="sendEmail()">Send Mail</button>
+    </div>
+  </div>
+
+  <script>
+    function sendEmail() {
+      const to = document.getElementById('to').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const body = document.getElementById('body').value.trim();
+
+      if (!to || !subject || !body) {
+        alert("Please fill in all fields.");
+        return;
+      }
+      localStorage.setItem('email_to', to);
+      localStorage.setItem('email_subject', subject);
+      localStorage.setItem('email_body', body);
+
+      const url = `sent.html?to=${encodeURIComponent(to)}`;
+      window.location.href = url;
+    }
+
+    fetch('inbox.json')
+      .then(response => response.json())
+      .then(data => {
+        const list = document.getElementById('emailList');
+        data.emails.forEach(email => {
+          const div = document.createElement('div');
+          div.className = 'email-item';
+          div.innerHTML = `
+            <div class="subject">${email.subject}</div>
+            <div>${email.sender}</div>
+            <div class="timestamp">${new Date(email.timestamp).toLocaleString()}</div>
+          `;
+          div.onclick = () => {
+            window.location.href = `view.html?id=${email.id}`;
+          };
+          list.appendChild(div);
+        });
+      })
+      .catch(error => {
+        console.error('Failed to load inbox.json:', error);
+      });
+  </script>
+</body>
+</html>

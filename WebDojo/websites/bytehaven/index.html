@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteHaven - Anonymous File Sharing</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
+        }
+        .warning-message {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            max-width: 300px;
+            text-align: right;
+            border: 1px solid #ff6b6b;
+            padding: 8px 12px;
+            border-radius: 4px;
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .left-panel, .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .file-explorer, .download-explorer {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .file-list, .download-list {
+            list-style: none;
+            padding: 0;
+        }
+        .file-item, .download-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #3a3a3a;
+        }
+        .file-item:hover, .download-item:hover {
+            background: #3a3a3a;
+        }
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        .file-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .status-text {
+            color: #4CAF50;
+            font-size: 0.8em;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.2s;
+            margin-left: 8px;
+        }
+        .status-text.visible {
+            opacity: 1;
+        }
+        .file-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #888;
+        }
+        .upload-status, .download-status {
+            color: #4CAF50;
+            font-size: 0.8em;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .upload-status.visible, .download-status.visible {
+            opacity: 1;
+        }
+        .file-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            color: white;
+        }
+        .preview-btn {
+            background: #2563eb;
+        }
+        .preview-btn:hover {
+            background: #1d4ed8;
+        }
+        .upload-btn {
+            background: #4CAF50;
+            min-width: 80px;
+        }
+        .upload-btn:hover {
+            background: #45a049;
+        }
+        .upload-btn.uploaded {
+            background: #666;
+        }
+        .upload-btn.uploaded:hover {
+            background: #dc2626;
+        }
+        .download-btn {
+            background: #9333ea;
+            min-width: 100px;
+        }
+        .download-btn:hover {
+            background: #7e22ce;
+        }
+        .download-btn.downloaded {
+            background: #666;
+        }
+        .download-btn.downloaded:hover {
+            background: #dc2626;
+        }
+        .file-preview {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        .preview-content {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .upload-history, .download-history {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .upload-history h2, .download-history h2 {
+            margin-top: 0;
+        }
+        .uploaded-files, .downloaded-files {
+            list-style: none;
+            padding: 0;
+        }
+        .uploaded-file, .downloaded-file {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #3a3a3a;
+            font-family: monospace;
+        }
+        .upload-time, .download-time {
+            color: #888;
+            font-size: 0.9em;
+        }
+        .empty-message {
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+        }
+        .tab-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background: #2a2a2a;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            margin-right: 2px;
+        }
+        .tab.active {
+            background: #3a3a3a;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ByteHaven</h1>
+            <div class="header-right">
+                <span>File Sharing Platform</span>
+                <div class="warning-message">
+                    ⚠️ WARNING: This is an open public platform. All uploaded files are visible to everyone. Do not share private, sensitive, or personal information.
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-container">
+            <div class="tab active" onclick="switchTab('upload')">Upload Files</div>
+            <div class="tab" onclick="switchTab('download')">Download Files</div>
+        </div>
+        
+        <div id="upload-tab" class="tab-content active">
+            <div class="main-content">
+                <div class="left-panel">
+                    <div class="file-explorer">
+                        <h2>Available Files for Upload</h2>
+                        <ul class="file-list" id="fileList">
+                            <!-- Upload files will be loaded from initial-files.json -->
+                        </ul>
+                    </div>
+
+                    <div class="file-preview" id="filePreview">
+                        <h2>File Preview</h2>
+                        <div class="preview-content" id="previewContent"></div>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="upload-history">
+                        <h2>Upload History</h2>
+                        <ul class="uploaded-files" id="uploadedFiles">
+                            <li class="empty-message" id="emptyUploadHistoryMessage">No files have been uploaded yet.</li>
+                            <!-- Uploaded files will be listed here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="download-tab" class="tab-content">
+            <div class="main-content">
+                <div class="left-panel">
+                    <div class="download-explorer">
+                        <h2>Available Files for Download</h2>
+                        <ul class="download-list" id="downloadList">
+                            <!-- Download files will be loaded from initial-files.json -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="download-history">
+                        <h2>Download History</h2>
+                        <ul class="downloaded-files" id="downloadedFiles">
+                            <li class="empty-message" id="emptyDownloadHistoryMessage">No files have been downloaded yet.</li>
+                            <!-- Downloaded files will be listed here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store uploaded and downloaded files
+        const uploadedFiles = new Set();
+        const downloadedFiles = new Set();
+
+        // Load initial files from JSON
+        async function loadInitialFiles() {
+            try {
+                const response = await fetch('initial-files.json');
+                const data = await response.json();
+                const fileList = document.getElementById('fileList');
+                const downloadList = document.getElementById('downloadList');
+                
+                // Clear lists
+                fileList.innerHTML = '';
+                downloadList.innerHTML = '';
+                
+                data.files.forEach(file => {
+                    if (file.downloadable || file.id.startsWith('download')) {
+                        // Create download item
+                        const li = document.createElement('li');
+                        li.className = 'download-item';
+                        li.innerHTML = `
+                            <div class="file-info">
+                                <div class="file-name">
+                                    <span>${file.icon}</span>
+                                    <span id="dname-${file.id}">${file.name}<span class="status-text" id="dstatus-${file.id}">[DOWNLOADED]</span></span>
+                                </div>
+                                <span>${file.size}</span>
+                            </div>
+                            <div class="file-actions">
+                                <button class="action-btn preview-btn" onclick="previewFile('${file.name}')">Preview</button>
+                                <button class="action-btn download-btn" onclick="toggleDownload('${file.id}', '${file.name}', '${file.size}')">Download</button>
+                            </div>
+                        `;
+                        downloadList.appendChild(li);
+                    } else {
+                        // Create upload item
+                        const li = document.createElement('li');
+                        li.className = 'file-item';
+                        li.innerHTML = `
+                            <div class="file-info">
+                                <div class="file-name">
+                                    <span>${file.icon}</span>
+                                    <span id="name-${file.id}">${file.name}<span class="status-text" id="status-${file.id}">[UPLOADED]</span></span>
+                                </div>
+                                <span>${file.size}</span>
+                            </div>
+                            <div class="file-actions">
+                                <button class="action-btn preview-btn" onclick="previewFile('${file.name}')">Preview</button>
+                                <button class="action-btn upload-btn" onclick="toggleUpload('${file.id}', '${file.name}', '${file.size}')">Upload</button>
+                            </div>
+                        `;
+                        fileList.appendChild(li);
+                    }
+                });
+            } catch (error) {
+                console.error('Error loading initial files:', error);
+            }
+        }
+
+        function toggleUpload(fileId, fileName, fileSize) {
+            // Instead of the previous implementation, redirect to a confirmation page
+            window.location.href = `upload-confirmation.html?file=${encodeURIComponent(fileName)}&size=${encodeURIComponent(fileSize)}&id=${encodeURIComponent(fileId)}`;
+        }
+        
+        function toggleDownload(fileId, fileName, fileSize) {
+            // Instead of the previous implementation, redirect to a confirmation page
+            window.location.href = `download-confirmation.html?file=${encodeURIComponent(fileName)}&size=${encodeURIComponent(fileSize)}&id=${encodeURIComponent(fileId)}`;
+        }
+
+        function previewFile(filename) {
+            const preview = document.getElementById('filePreview');
+            const content = document.getElementById('previewContent');
+            preview.style.display = 'block';
+            
+            fetch('initial-files.json')
+                .then(response => response.json())
+                .then(data => {
+                    const file = data.files.find(f => f.name === filename);
+                    if (file && file.type === 'text') {
+                        content.textContent = file.content;
+                    } else {
+                        content.textContent = `[Preview not available for ${filename}]`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading file preview:', error);
+                    content.textContent = 'Error loading preview';
+                });
+        }
+        
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Deactivate all tab buttons
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate selected tab
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            
+            // Activate tab button
+            document.querySelector(`.tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
+        }
+
+        // Load files when page loads
+        window.addEventListener('load', function() {
+            loadInitialFiles();
+            loadUploadHistory();
+            loadDownloadHistory();
+        });
+
+        // Load upload history from localStorage
+        function loadUploadHistory() {
+            const uploadHistory = JSON.parse(localStorage.getItem('uploadHistory') || '[]');
+            const uploadedFilesList = document.getElementById('uploadedFiles');
+            
+            if (uploadHistory.length === 0) {
+                uploadedFilesList.innerHTML = `
+                    <li class="empty-message" id="emptyUploadHistoryMessage">No files have been uploaded yet.</li>
+                `;
+                return;
+            }
+            
+            uploadedFilesList.innerHTML = '';
+            uploadHistory.forEach(file => {
+                const li = document.createElement('li');
+                li.className = 'uploaded-file';
+                li.innerHTML = `
+                    <span>${file.name} (${file.size})</span>
+                    <span class="upload-time">${file.time}</span>
+                `;
+                uploadedFilesList.appendChild(li);
+            });
+        }
+
+        // Load download history from localStorage
+        function loadDownloadHistory() {
+            const downloadHistory = JSON.parse(localStorage.getItem('downloadHistory') || '[]');
+            const downloadedFilesList = document.getElementById('downloadedFiles');
+            
+            if (downloadHistory.length === 0) {
+                downloadedFilesList.innerHTML = `
+                    <li class="empty-message" id="emptyDownloadHistoryMessage">No files have been downloaded yet.</li>
+                `;
+                return;
+            }
+            
+            downloadedFilesList.innerHTML = '';
+            downloadHistory.forEach(file => {
+                const li = document.createElement('li');
+                li.className = 'downloaded-file';
+                li.innerHTML = `
+                    <span>${file.name} (${file.size})</span>
+                    <span class="download-time">${file.time}</span>
+                `;
+                downloadedFilesList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html> 

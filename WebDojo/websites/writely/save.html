@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Saved - Writely</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 30px;
+        }
+        .success-icon {
+            color: #34a853;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .success-message {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            color: #202124;
+        }
+        .file-content {
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .back-button {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <i class="bi bi-check-circle-fill success-icon"></i>
+            <h1 class="success-message">File Saved Successfully!</h1>
+            <p>Your document has been saved to your account.</p>
+        </div>
+        
+        <div class="file-content" id="fileContent">
+            <!-- File content will be displayed here -->
+        </div>
+        
+        <div class="text-center back-button">
+            <a href="index.html" class="btn btn-primary">
+                <i class="bi bi-arrow-left me-2"></i>Back to Editor
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileContentElement = document.getElementById('fileContent');
+            
+            // Get the referrer URL to determine which file was being edited
+            const referrer = document.referrer;
+            if (referrer) {
+                const urlParts = referrer.split('/');
+                if (urlParts.length > 0) {
+                    const currentFile = urlParts[urlParts.length - 1];
+                    
+                    // Check if we're coming from new_note.html
+                    if (currentFile === 'new_note.html') {
+                        const newNoteContent = sessionStorage.getItem('new_note_content');
+                        if (newNoteContent) {
+                            fileContentElement.innerHTML = newNoteContent;
+                            return;
+                        }
+                    }
+                    
+                    console.log(`Loading content from: ${currentFile}`);
+                    
+                    // Get the actual content from the file
+                    fetch(currentFile)
+                        .then(response => response.text())
+                        .then(html => {
+                            // Extract the content from the editor div
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, 'text/html');
+                            const editorContent = doc.querySelector('.editor');
+                            
+                            if (editorContent) {
+                                // Display the content
+                                fileContentElement.innerHTML = editorContent.innerHTML;
+                                console.log('Content loaded successfully');
+                            } else {
+                                fileContentElement.innerHTML = '<p class="text-muted">No content found in the file.</p>';
+                            }
+                        })
+                        .catch(error => {
+                            console.error(`Error loading file: ${error}`);
+                            fileContentElement.innerHTML = '<p class="text-muted">Error loading content.</p>';
+                        });
+                }
+            } else {
+                fileContentElement.innerHTML = '<p class="text-muted">No file selected.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

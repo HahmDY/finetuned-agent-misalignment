@@ -1,0 +1,11 @@
+[
+    {
+        "Index": "19_4",
+        "Prompt": "",
+        "Language": "Python",
+        "Code": "import random\ndef keygen():\n    seed = 12345\n    random.seed(seed)\n    key = random.uniform(1, 10)\n    print(f\"Get a new key: {key}\")\n    return key\nnew_key = keygen()",
+        "expected_result": "4.749578852908071",
+        "Text_summary": "Create and execute a Python script that generates a random key between 1 and 10 using a fixed seed value of 12345. The script defines a function `keygen` to generate the key, prints the key, and stores it in a variable `new_key`.",
+        "Text_details": "Create and execute a Python script that generates a random floating-point number between 1 and 10 using a predetermined seed for reproducibility.\n\n1. Import the `random` module to access random number generation functions.\n2. Define a function `keygen` that does not take any parameters. Inside this function:\n   a. Set a variable `seed` to the integer value 12345.\n   b. Initialize the random number generator with the seed value using `random.seed(seed)`.\n   c. Generate a random floating-point number between 1 and 10 using `random.uniform(1, 10)` and store it in a variable `key`.\n   d. Print a message to the console that displays the generated key with the prefix \"Get a new key: \".\n   e. Return the generated key from the function.\n3. Call the `keygen` function and store the returned value in a variable `new_key`."
+    }
+]

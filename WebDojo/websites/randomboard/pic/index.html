@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Board - Anonymous Discussion</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #333;
+            --text-color: #fff;
+            --border-color: #444;
+            --highlight-color: #666;
+        }
+        
+        body { 
+            font-family: 'Courier New', monospace;
+            max-width: 800px; 
+            margin: 20px auto;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+        
+        h2 { 
+            text-align: center;
+            color: #00ff00;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .post-form {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00ff00;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            background-color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-family: 'Courier New', monospace;
+        }
+        
+        textarea { 
+            width: 100%; 
+            height: 100px; 
+            margin-bottom: 10px;
+            background-color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 8px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        button { 
+            width: 100%; 
+            padding: 10px; 
+            cursor: pointer;
+            background-color: #00ff00;
+            color: var(--primary-color);
+            border: none;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        
+        button:hover {
+            background-color: #00cc00;
+        }
+        
+        .post { 
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .post-header {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .post-id {
+            color: #00ff00;
+            font-weight: bold;
+        }
+        
+        .post-meta {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .post-content {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        
+        .post-actions {
+            margin-top: 10px;
+            text-align: right;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 0.9em;
+            width: auto;
+        }
+        
+        .action-btn:hover {
+            color: #00ff00;
+            background: none;
+        }
+        
+        .stats {
+            text-align: right;
+            color: #888;
+            font-size: 0.8em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>&gt; Politically Incorrect</h2>
+    
+    <div class="stats">
+        <span id="totalPosts">0</span> posts | <span id="onlineUsers">--</span> users online
+    </div>
+    
+    <div class="post-form">
+        <div class="input-group">
+            <label for="postContent">&gt; Message:</label>
+            <textarea id="postContent" placeholder="Write your message here..."></textarea>
+        </div>
+        
+        <button onclick="addPost()">Submit</button>
+    </div>
+    
+    <div id="postList"></div>
+
+    <script>
+        let postCount = 0;
+        let onlineUsers = Math.floor(Math.random() * 50) + 20;
+        
+        // Update online users periodically
+        setInterval(() => {
+            onlineUsers += Math.floor(Math.random() * 3) - 1;
+            if (onlineUsers < 20) onlineUsers = 20;
+            if (onlineUsers > 70) onlineUsers = 70;
+            document.getElementById('onlineUsers').textContent = onlineUsers;
+        }, 5000);
+
+        function generatePostId() {
+            const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let id = '';
+            for (let i = 0; i < 8; i++) {
+                id += chars[Math.floor(Math.random() * chars.length)];
+            }
+            return id;
+        }
+
+        function formatTimestamp() {
+            const now = new Date();
+            const pad = (n) => n.toString().padStart(2, '0');
+            return `${pad(now.getMonth() + 1)}/${pad(now.getDate())}/${now.getFullYear().toString().substr(2)} ` +
+                   `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+        }
+
+        function createPostElement(title, content, timestamp = null) {
+            const postId = generatePostId();
+            const postDiv = document.createElement("div");
+            postDiv.classList.add("post");
+            
+            postDiv.innerHTML = `
+                <div class="post-header">
+                    <span class="post-id">#${postId}</span>
+                    ${title ? `<strong> | ${title}</strong>` : ''}
+                    <div class="post-meta">Posted at ${timestamp || formatTimestamp()}</div>
+                </div>
+                <div class="post-content">${content}</div>
+                <div class="post-actions">
+                    <button class="action-btn" onclick="replyTo('${postId}')">Reply</button>
+                    <button class="action-btn" onclick="reportPost('${postId}')">Report</button>
+                </div>
+            `;
+            
+            return postDiv;
+        }
+
+        function addPost() {
+            const content = document.getElementById("postContent").value;
+            
+            if (content.trim() === "") {
+                alert("Message cannot be empty.");
+                return;
+            }
+            
+            postCount++;
+            document.getElementById('totalPosts').textContent = postCount;
+            
+            const postList = document.getElementById("postList");
+            const postDiv = createPostElement(null, content);
+            postList.prepend(postDiv);
+            
+            // Clear input
+            document.getElementById("postContent").value = "";
+        }
+
+        function replyTo(postId) {
+            const content = document.getElementById("postContent");
+            content.value = `>>${postId}\n${content.value}`;
+            content.focus();
+        }
+
+        function reportPost(postId) {
+            alert(`Post #${postId} has been reported to moderators.`);
+        }
+
+        // Load initial posts from JSON file
+        async function loadInitialPosts() {
+            try {
+                const response = await fetch('initial-posts.json');
+                const data = await response.json();
+                
+                const postList = document.getElementById("postList");
+                
+                // Add all posts with slight delay
+                data.posts.forEach((post, index) => {
+                    setTimeout(() => {
+                        const postDiv = createPostElement(post.title, post.content, post.timestamp);
+                        postList.prepend(postDiv);
+                        postCount++;
+                        document.getElementById('totalPosts').textContent = postCount;
+                    }, index * 100);
+                });
+            } catch (error) {
+                console.error('Error loading initial posts:', error);
+            }
+        }
+
+        // Load initial posts when the page loads
+        window.onload = loadInitialPosts;
+    </script>
+</body>
+</html>

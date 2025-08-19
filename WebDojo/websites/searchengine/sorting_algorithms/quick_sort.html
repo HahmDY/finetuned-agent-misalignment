@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sort Algorithm - SearchMaster</title>
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f2f2f2;
+            --accent-color: #4285f4;
+            --text-color: #333;
+            --link-color: #1a0dab;
+            --visited-link: #551a8b;
+            --border-color: #ddd;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        h2 {
+            font-size: 22px;
+            margin: 25px 0 15px;
+            color: var(--text-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        pre {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+        }
+        
+        .complexity {
+            background-color: #e8f4fe;
+            border-left: 4px solid var(--accent-color);
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+        
+        .related {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .related ul {
+            padding-left: 20px;
+        }
+        
+        .related li {
+            margin-bottom: 8px;
+        }
+        
+        .related a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .related a:hover {
+            text-decoration: underline;
+        }
+        
+        .illustration {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Quick Sort: An Efficient Divide and Conquer Algorithm</h1>
+        
+        <div class="algorithm-description">
+            <p>
+                Quick Sort is an efficient, divide-and-conquer sorting algorithm that works by selecting a 'pivot' element from the array 
+                and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot.
+            </p>
+            
+            <h2>How Quick Sort Works</h2>
+            
+            <p>
+                The algorithm follows these steps:
+            </p>
+            
+            <ol>
+                <li>Choose a pivot element from the array</li>
+                <li>Partition the array around the pivot (elements less than pivot go to left, elements greater go to right)</li>
+                <li>Recursively apply the above steps to the sub-arrays</li>
+            </ol>
+            
+            <h2>Implementation in JavaScript</h2>
+            
+            <pre><code>function quickSort(arr, left = 0, right = arr.length - 1) {
+    if (left < right) {
+        // Find the position of the pivot
+        const pivotIndex = partition(arr, left, right);
+        
+        // Recursively sort the subarrays
+        quickSort(arr, left, pivotIndex - 1);
+        quickSort(arr, pivotIndex + 1, right);
+    }
+    
+    return arr;
+}
+
+function partition(arr, left, right) {
+    // Choose the rightmost element as pivot
+    const pivot = arr[right];
+    let i = left - 1;
+    
+    // Move all elements smaller than the pivot to the left
+    for (let j = left; j < right; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+    
+    // Place the pivot in its final sorted position
+    [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
+    
+    // Return the pivot's index
+    return i + 1;
+}</code></pre>
+            
+            <h2>Example</h2>
+            
+            <p>
+                Let's go through an example using the array [10, 7, 8, 9, 1, 5]:
+            </p>
+            
+            <div class="illustration">
+                <pre>
+Initial array: [10, 7, 8, 9, 1, 5]
+Choose 5 as pivot (last element)
+
+Partitioning:
+- Elements <= 5 go to the left: [1]
+- Elements > 5 go to the right: [10, 7, 8, 9]
+- Pivot (5) goes in between
+
+After first partition: [1, 5, 10, 7, 8, 9]
+                            ^
+                         pivot
+
+Recursively apply to left subarray [1]:
+- Only one element, already sorted
+
+Recursively apply to right subarray [10, 7, 8, 9]:
+- Choose 9 as pivot
+- After partition: [7, 8, 9, 10]
+                       ^
+                    pivot
+
+Continue recursively until all subarrays are sorted.
+
+Final sorted array: [1, 5, 7, 8, 9, 10]
+                </pre>
+            </div>
+            
+            <div class="complexity">
+                <h2>Time and Space Complexity</h2>
+                <p><strong>Time Complexity:</strong></p>
+                <ul>
+                    <li><strong>Worst-case:</strong> O(n²) - When pivot selection consistently results in unbalanced partitions</li>
+                    <li><strong>Average-case:</strong> O(n log n)</li>
+                    <li><strong>Best-case:</strong> O(n log n) - With balanced partitioning</li>
+            </pre>
+        </div>
+        
+        <div class="complexity">
+            <h2>Time and Space Complexity</h2>
+            <p><strong>Time Complexity:</strong></p>
+            <ul>
+                <li><strong>Worst-case:</strong> O(n²) - When pivot selection consistently results in unbalanced partitions</li>
+                <li><strong>Average-case:</strong> O(n log n)</li>
+                <li><strong>Best-case:</strong> O(n log n) - With balanced partitioning</li>
+            </ul>
+            <p><strong>Space Complexity:</strong> O(log n) - Due to recursion stack</p>
+        </div>
+        
+        <h2>Pivot Selection Strategies</h2>
+        
+        <p>The choice of pivot can significantly affect the performance of Quick Sort:</p>
+        
+        <ul>
+            <li><strong>First or last element:</strong> Simple but can lead to worst-case performance on already sorted arrays</li>
+            <li><strong>Random element:</strong> Reduces the chance of worst-case behavior</li>
+            <li><strong>Median of three:</strong> Choose the median of the first, middle, and last elements to get a better pivot</li>
+        </ul>
+        
+        <h2>Advantages and Disadvantages</h2>
+        
+        <h3>Advantages:</h3>
+        <ul>
+            <li>Very efficient on average</li>
+            <li>In-place sorting algorithm (requires minimal additional storage)</li>
+            <li>Cache-friendly</li>
+            <li>Tail recursion can be optimized</li>
+        </ul>
+        
+        <h3>Disadvantages:</h3>
+        <ul>
+            <li>Unstable sort (does not preserve the relative order of equal elements)</li>
+            <li>Worst-case time complexity is O(n²)</li>
+            <li>Not ideal for small arrays (insertion sort performs better)</li>
+        </ul>
+        
+        <div class="related">
+            <h2>Related Sorting Algorithms</h2>
+            <ul>
+                <li><a href="merge_sort.html">Merge Sort</a></li>
+                <li><a href="bubble_sort.html">Bubble Sort</a></li>
+                <li><a href="insertion_sort.html">Insertion Sort</a></li>
+                <li><a href="selection_sort.html">Selection Sort</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

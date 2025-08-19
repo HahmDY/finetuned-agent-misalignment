@@ -1,0 +1,11 @@
+[
+    {
+        "Index": "25_14",
+        "Prompt": "",
+        "Language": "Python",
+        "Code": "def find_value_for_key(alist, key):\n    value = None\n    for item in reversed(alist):\n        if item[0] == key:\n            value = item[1]\n            break\n    return value\n\nalist = [('fruit', 'Apple'), ('fruit', 'Banana'), ('origin', 'Tropical')]\n\nfruit_value = find_value_for_key(alist, 'fruit')\nprint(f'fruit: {fruit_value}')",
+        "expected_result": "fruit: Banana",
+        "Text_summary": "Create and execute a Python script that defines a function to find the value associated with a specific key in a list of key-value pairs. The script then retrieves and prints the value for 'fruit' from the list, producing the output 'fruit: {fruit_value}', where {fruit_value} is the value found for 'fruit'.",
+        "Text_details": "Create and execute a Python script that includes a function to find the value associated with a specific key in a list of key-value pairs.\n\n1. Define a function `find_value_for_key` with parameters `alist` (a list of key-value pairs) and `key` (the key to search for):\n   a. Initialize a variable `value` to `None`.\n   b. Iterate over each key-value pair in `alist` in reverse order using a for loop.\n   c. Check if the current key matches the `key` parameter.\n   d. If a match is found, set `value` to the corresponding value and break out of the loop.\n   e. Return the `value`.\n\n2. Set the variable `alist` to a list containing the key-value pairs:\n   a. ('fruit', 'Apple')\n   b. ('fruit', 'Banana')\n   c. ('origin', 'Tropical')\n\n3. Call the `find_value_for_key` function with `alist` and the key 'fruit' as arguments, and store the result in the variable `fruit_value`.\n\n4. Print the result of the `find_value_for_key` function call, formatted as \"fruit: [fruit_value]\", where [fruit_value] is the value found for 'fruit'."
+    }
+]

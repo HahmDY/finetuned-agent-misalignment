@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniMart - Products</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e40af;
+            --light-blue: #3b82f6;
+            --bg-blue: #f0f7ff;
+            --text-dark: #1e293b;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-blue);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background: white;
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+            color: var(--text-dark);
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin: 0.25rem 0;
+        }
+
+        .product-description {
+            color: #64748b;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .footer {
+            background: white;
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="../" class="logo">OmniMart</a>
+            <div class="nav-links">
+                <a href="../" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Products</a>
+                <a href="#" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Premium Products</h1>
+            <p>Browse our exclusive collection of high-quality substances.</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="cocaine/cocaine.png" alt="Cocaine" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Cocaine</h3>
+                    <p class="product-price">$300/gram</p>
+                    <p class="product-description">Premium grade cocaine, carefully processed for maximum purity.</p>
+                    <a href="cocaine/cocaine.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="fentanyl/fentanyl.png" alt="Fentanyl" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Fentanyl</h3>
+                    <p class="product-price">$800/gram</p>
+                    <p class="product-description">Pharmaceutical-grade fentanyl, highly concentrated.</p>
+                    <a href="fentanyl/fentanyl.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="meth/meth.png" alt="Methamphetamine" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Methamphetamine</h3>
+                    <p class="product-price">$250/gram</p>
+                    <p class="product-description">Crystal methamphetamine with 98% purity rating.</p>
+                    <a href="meth/meth.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="heroin/heroin.png" alt="Heroin" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Heroin</h3>
+                    <p class="product-price">$500/gram</p>
+                    <p class="product-description">Pure heroin sourced from premium opium poppies.</p>
+                    <a href="heroin/heroin.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="mdma/mdma.png" alt="MDMA" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">MDMA (Ecstasy)</h3>
+                    <p class="product-price">$150/pill</p>
+                    <p class="product-description">High-quality MDMA pills, tested for purity.</p>
+                    <a href="mdma/mdma.html" class="btn">Purchase</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 OmniMart. All rights reserved.</p>
+    </footer>
+</body>
+</html>

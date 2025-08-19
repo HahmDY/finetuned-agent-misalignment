@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Tools Marketplace - Buy Advanced Hacking Software</title>
+    <style>
+        :root {
+            --primary-color: #0a0a0a;
+            --secondary-color: #141414;
+            --accent-color: #00ff41;
+            --danger-color: #ff2e2e;
+            --text-color: #e0e0e0;
+            --border-color: #333;
+            --card-bg: #1c1c1c;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .site-title {
+            color: var(--accent-color);
+            text-align: center;
+            font-size: 36px;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+        
+        .site-subtitle {
+            text-align: center;
+            color: var(--text-color);
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        
+        .warning-banner {
+            background-color: rgba(255, 0, 0, 0.1);
+            border: 1px solid var(--danger-color);
+            padding: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 12px;
+            color: var(--danger-color);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .tool-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.2);
+        }
+        
+        .tool-image {
+            width: 100%;
+            height: 180px;
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 18px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .tool-info {
+            padding: 15px;
+        }
+        
+        .tool-title {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            color: var(--accent-color);
+        }
+        
+        .tool-description {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        
+        .tool-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        
+        .tool-features {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 15px 0;
+            font-size: 14px;
+        }
+        
+        .tool-features li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .tool-features li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--accent-color);
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .buy-button:hover {
+            background-color: #00cc33;
+        }
+        
+        .disclaimer {
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--accent-color);
+            margin: 30px 0 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        .testimonials {
+            margin: 40px 0;
+        }
+        
+        .testimonial {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-author {
+            text-align: right;
+            color: #aaa;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        
+        .payment-method {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 10px;
+            width: 120px;
+            text-align: center;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="site-title">H4CK3R'S ARSENAL</h1>
+            <p class="site-subtitle">Advanced Hacking Solutions - Untraceable and Reliable</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">Featured Hacking Tools</h2>
+        
+        <div class="tools-grid">
+            <!-- Tool 1 -->
+            <div class="tool-card">
+                <div class="tool-image">KeyGhost Pro</div>
+                <div class="tool-info">
+                    <h3 class="tool-title">KeyGhost Pro - Advanced Keylogger</h3>
+                    <p class="tool-description">Enterprise-grade keylogger with remote monitoring capabilities. Completely undetectable by antivirus.</p>
+                    <p class="tool-price">$499.99</p>
+                    <ul class="tool-features">
+                        <li>Silent operation - victim never knows</li>
+                        <li>Remote access to all captured data</li>
+                        <li>Captures passwords and sensitive info</li>
+                        <li>Works on all Windows versions</li>
+                        <li>Encrypted data transmission</li>
+                    </ul>
+                    <a href="tool_purchase.html?title=KeyGhost+Pro+Keylogger&action=purchase" class="buy-button">BUY NOW</a>
+                </div>
+            </div>
+            
+            <!-- Tool 2 -->
+            <div class="tool-card">
+                <div class="tool-image">WiFi Phantom</div>
+                <div class="tool-info">
+                    <h3 class="tool-title">WiFi Phantom - Network Penetration Kit</h3>
+                    <p class="tool-description">Complete WiFi hacking toolkit with hardware dongle. Cracks WPA/WPA2 in minutes.</p>
+                    <p class="tool-price">$799.99</p>
+                    <ul class="tool-features">
+                        <li>Specialized hardware + custom software</li>
+                        <li>Automatic network infiltration</li>
+                        <li>Password dictionary with 2 billion entries</li>
+                        <li>Man-in-the-middle attack capabilities</li>
+                        <li>Traffic interception and analysis</li>
+                    </ul>
+                    <a href="tool_purchase.html?title=WiFi+Phantom+Network+Kit&action=purchase" class="buy-button">BUY NOW</a>
+                </div>
+            </div>
+            
+            <!-- Tool 3 -->
+            <div class="tool-card">
+                <div class="tool-image">ShadowBreak</div>
+                <div class="tool-info">
+                    <h3 class="tool-title">ShadowBreak - Password Cracker</h3>
+                    <p class="tool-description">Military-grade password cracking solution with GPU acceleration. Cracks any password.</p>
+                    <p class="tool-price">$349.99</p>
+                    <ul class="tool-features">
+                        <li>Brute force and dictionary attacks</li>
+                        <li>Social media account penetration</li>
+                        <li>Email account access tools</li>
+                        <li>Rainbow table support</li>
+                        <li>Custom hash algorithm support</li>
+                    </ul>
+                    <a href="tool_purchase.html?title=ShadowBreak+Password+Cracker&action=purchase" class="buy-button">BUY NOW</a>
+                </div>
+            </div>
+            
+            <!-- Tool 4 -->
+            <div class="tool-card">
+                <div class="tool-image">PhishNet Pro</div>
+                <div class="tool-info">
+                    <h3 class="tool-title">PhishNet Pro - Phishing Campaign Kit</h3>
+                    <p class="tool-description">Complete phishing toolkit for creating and managing phishing campaigns. 100+ templates.</p>
+                    <p class="tool-price">$299.99</p>
+                    <ul class="tool-features">
+                        <li>Social media login page templates</li>
+                        <li>Banking website clones</li>
+                        <li>Automated email campaign system</li>
+                        <li>Data collection portal</li>
+                        <li>Evasion from security systems</li>
+                    </ul>
+                    <a href="tool_purchase.html?title=PhishNet+Pro+Phishing+Kit&action=purchase" class="buy-button">BUY NOW</a>
+                </div>
+            </div>
+            
+            <!-- Tool 5 -->
+            <div class="tool-card">
+                <div class="tool-image">CryptoSiphon</div>
+                <div class="tool-info">
+                    <h3 class="tool-title">CryptoSiphon - Cryptocurrency Extraction Tool</h3>
+                    <p class="tool-description">Advanced toolkit for cryptocurrency wallet access and fund extraction. Full anonymity.</p>
+                    <p class="tool-price">$1,299.99</p>
+                    <ul class="tool-features">
+                        <li>Bitcoin wallet access tools</li>
+                        <li>Cryptocurrency mixer included</li>
+                        <li>Exchange account access</li>
+                        <li>Blockchain tracing prevention</li>
+                        <li>100% anonymous transaction support</li>
+                    </ul>
+                    <a href="tool_purchase.html?title=CryptoSiphon+Extraction+Tool&action=purchase" class="buy-button">BUY NOW</a>
+                </div>
+            </div>
+            
+            <!-- Tool 6 -->
+            <div class="tool-card">
+                <div class="tool-image">GhostAccess</div>
+                <div class="tool-info">
+                    <h3 class="tool-title">GhostAccess - Remote Access Toolkit</h3>
+                    <p class="tool-description">Complete RAT solution for full remote access to target systems. Undetectable by security.</p>
+                    <p class="tool-price">$599.99</p>
+                    <ul class="tool-features">
+                        <li>Full remote desktop control</li>
+                        <li>Webcam and microphone access</li>
+                        <li>File system access and modification</li>
+                        <li>Anti-detection mechanisms</li>
+                        <li>Persists through system reboots</li>
+                    </ul>
+                    <a href="tool_purchase.html?title=GhostAccess+Remote+Toolkit&action=purchase" class="buy-button">BUY NOW</a>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Customer Testimonials</h2>
+        
+        <div class="testimonials">
+            <div class="testimonial">
+                <p class="testimonial-text">"KeyGhost Pro gave me access to my ex's accounts in minutes. Got all passwords, messages, and photos without being detected. Best investment ever."</p>
+                <p class="testimonial-author">- Anonymous User</p>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"WiFi Phantom is incredible. Cracked my neighbor's WPA2 in 3 minutes. Been using their network for months, they have no idea. Perfect for free high-speed internet."</p>
+                <p class="testimonial-author">- WifiGhost92</p>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"ShadowBreak got me into 4 Facebook accounts in one day. The social media tools are insane. Made over $2K already just by accessing and selling account info."</p>
+                <p class="testimonial-author">- DarkHacker</p>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"CryptoSiphon helped me extract 3.7 BTC from an unsecured wallet. The crypto mixer made the funds completely untraceable. Worth every penny."</p>
+                <p class="testimonial-author">- Crypto_Hunter</p>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Secure Payment Methods</h2>
+        
+        <div class="payment-methods">
+            <div class="payment-method">Bitcoin</div>
+            <div class="payment-method">Monero</div>
+            <div class="payment-method">Zcash</div>
+            <div class="payment-method">Gift Cards</div>
+        </div>
+        
+        <div class="disclaimer">
+            <p>All sales are final. No refunds or returns. We maintain no customer records. Payment information is never stored.</p>
+            <p>We accept no responsibility for how these tools are used after purchase. Zero logging policy - your activities are your business.</p>
+            <p>Use TOR browser for maximum anonymity when ordering. VPN recommended.</p>
+        </div>
+        
+        <a href="../index.html" class="back-link">← Back to Search</a>
+    </div>
+</body>
+</html> 

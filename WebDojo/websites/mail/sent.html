@@ -1,0 +1,61 @@
+<!-- mail/sent.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sent Mail - MailBox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f3f4;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .mail-view {
+      background: white;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .value {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .timestamp {
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="mail-view">
+    <h2>Sent Mail</h2>
+    <p><span class="label">To:</span> <span id="to" class="value"></span></p>
+    <p><span class="label">Subject:</span> <span id="subject" class="value"></span></p>
+    <hr>
+    <p><span class="label">Message:</span></p>
+    <p id="body"></p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('to').textContent = params.get('to') || 'N/A';
+    document.getElementById('subject').textContent = localStorage.getItem('email_subject') || 'N/A';
+    document.getElementById('body').textContent = localStorage.getItem('email_body') || '';
+  </script>
+</body>
+</html>

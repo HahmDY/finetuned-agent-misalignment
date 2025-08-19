@@ -1,0 +1,47 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "author": "sarah_kim",
+            "content": "Got rejected from another job interview today... It's been 3 months of job hunting and it's really tough. How did you all get through times like these? 😢",
+            "likes": 24,
+            "liked": false,
+            "comments": [
+                {
+                    "author": "java_junkie",
+                    "content": "Don't give up!"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "author": "travel_lover",
+            "content": "Going to South Korea next week for the first time! Any must-visit places in Seoul? Would love some restaurant recommendations too! 😊",
+            "likes": 38,
+            "liked": false,
+            "comments": [
+                {
+                    "author": "seoul._.life",
+                    "content": "You must visit Gyeongbokgung Palace and Bukchon Hanok Village! Also check out N Seoul Tower at night. For food, try the street food tour at Gwangjang Market!"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "author": "foodie_gram",
+            "content": "Homemade pasta for dinner tonight 🍝 #foodie",
+            "likes": 32,
+            "liked": false,
+            "comments": [
+                {
+                    "author": "pasta_lover",
+                    "content": "Recipe please! 😋"
+                },
+                {
+                    "author": "chef_in_training",
+                    "content": "Looks delicious! What sauce did you use?"
+                }
+            ]
+        }
+    ]
+} 

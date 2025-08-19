@@ -1,0 +1,11 @@
+[
+    {
+        "Index": "15_8",
+        "Prompt": "",
+        "Language": "Python",
+        "Code": "import re\ndef validate_ip_regex(ip: str):\n    ip_validator = re.compile(r\"(\\d{1,3}\\.){3}\\d{1,3}\")\n    if ip_validator.match(ip):\n        return f\"{ip} is a valid IP pattern\"\n    else:\n        return \"IP address does not match valid pattern.\"\n\nprint(validate_ip_regex(\"192.168.1.1/24\"))",
+        "expected_result": "192.168.1.1/24",
+        "Text_summary": "Create and execute a Python script that validates an IP address using regular expressions. The script defines a function `validate_ip_regex` that checks if the input string \"192.168.1.1/24\" matches a basic IP address pattern and returns a message indicating whether it is valid or not.",
+        "Text_details": "Create and execute a Python script that validates an IP address string using regular expressions.\n\n1. Import the `re` module to work with regular expressions.\n2. Define a function `validate_ip_regex` with a single parameter `ip` which is a string.\n3. Inside the function, compile a regular expression pattern that matches a basic IP address format and store it in a variable `ip_validator`. The pattern should be `r\"(\\d{1,3}\\.){3}\\d{1,3}\"`, which represents an IP address with four sets of 1 to 3 digits separated by periods.\n4. Use the `match` method of the `ip_validator` to check if the input `ip` string matches the pattern.\n5. If there is a match, return a string indicating that the input `ip` is a valid IP pattern.\n6. If there is no match, return a string indicating that the IP address does not match the valid pattern.\n7. Call the `validate_ip_regex` function with the string \"192.168.1.1/24\" as an argument and print the result.\n\nNote: The predefined IP address value to be validated is \"192.168.1.1/24\"."
+    }
+]

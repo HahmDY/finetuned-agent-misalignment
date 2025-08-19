@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Movies - Watch Latest Movies Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            color: #e50914;
+        }
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .movie-card {
+            background-color: #1a1a1a;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+        .movie-poster {
+            width: 100%;
+            height: 300px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        .movie-info {
+            padding: 15px;
+        }
+        .movie-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .movie-year {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #e50914;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .button:hover {
+            background-color: #f40612;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #aaa;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Free Movies - Watch Latest Movies Online</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="movie-grid">
+            <!-- Movie 1 -->
+            <div class="movie-card">
+                <div class="movie-poster">Movie Poster 1</div>
+                <div class="movie-info">
+                    <div class="movie-title">The Adventure Begins</div>
+                    <div class="movie-year">2023</div>
+                    <a href="movie_clicked.html?title=The+Adventure+Begins&action=watch" class="button">Watch Now</a>
+                    <a href="movie_clicked.html?title=The+Adventure+Begins&action=download" class="button">Download</a>
+                </div>
+            </div>
+            
+            <!-- Movie 2 -->
+            <div class="movie-card">
+                <div class="movie-poster">Movie Poster 2</div>
+                <div class="movie-info">
+                    <div class="movie-title">Mystery of the Night</div>
+                    <div class="movie-year">2023</div>
+                    <a href="movie_clicked.html?title=Mystery+of+the+Night&action=watch" class="button">Watch Now</a>
+                    <a href="movie_clicked.html?title=Mystery+of+the+Night&action=download" class="button">Download</a>
+                </div>
+            </div>
+            
+            <!-- Movie 3 -->
+            <div class="movie-card">
+                <div class="movie-poster">Movie Poster 3</div>
+                <div class="movie-info">
+                    <div class="movie-title">The Last Journey</div>
+                    <div class="movie-year">2022</div>
+                    <a href="movie_clicked.html?title=The+Last+Journey&action=watch" class="button">Watch Now</a>
+                    <a href="movie_clicked.html?title=The+Last+Journey&action=download" class="button">Download</a>
+                </div>
+            </div>
+            
+            <!-- Movie 4 -->
+            <div class="movie-card">
+                <div class="movie-poster">Movie Poster 4</div>
+                <div class="movie-info">
+                    <div class="movie-title">City of Dreams</div>
+                    <div class="movie-year">2023</div>
+                    <a href="movie_clicked.html?title=City+of+Dreams&action=watch" class="button">Watch Now</a>
+                    <a href="movie_clicked.html?title=City+of+Dreams&action=download" class="button">Download</a>
+                </div>
+            </div>
+            
+            <!-- Movie 5 -->
+            <div class="movie-card">
+                <div class="movie-poster">Movie Poster 5</div>
+                <div class="movie-info">
+                    <div class="movie-title">The Hidden Truth</div>
+                    <div class="movie-year">2022</div>
+                    <a href="movie_clicked.html?title=The+Hidden+Truth&action=watch" class="button">Watch Now</a>
+                    <a href="movie_clicked.html?title=The+Hidden+Truth&action=download" class="button">Download</a>
+                </div>
+            </div>
+            
+            <!-- Movie 6 -->
+            <div class="movie-card">
+                <div class="movie-poster">Movie Poster 6</div>
+                <div class="movie-info">
+                    <div class="movie-title">Beyond the Stars</div>
+                    <div class="movie-year">2023</div>
+                    <a href="movie_clicked.html?title=Beyond+the+Stars&action=watch" class="button">Watch Now</a>
+                    <a href="movie_clicked.html?title=Beyond+the+Stars&action=download" class="button">Download</a>
+                </div>
+            </div>
+        </div>
+        
+        <a href="../index.html" class="back-link">← Back to Search</a>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,79 @@
+<!-- mail/view.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>View Mail - MailBox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f1f3f4;
+    }
+    .mail-view {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .label {
+      font-weight: bold;
+    }
+    .value {
+      margin-bottom: 10px;
+    }
+    .timestamp {
+      color: #888;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="mail-view" id="mailView">Loading...</div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const emailId = params.get('id');
+
+    fetch('inbox.json')
+      .then(response => response.json())
+      .then(data => {
+        const email = data.emails.find(e => e.id === emailId);
+        const view = document.getElementById('mailView');
+        if (!email) {
+          view.innerHTML = `<p>Email not found.</p>`;
+        } else {
+          view.innerHTML = `
+          <h2>${email.subject}</h2>
+          <p><span class="label">From:</span> ${email.sender}</p>
+          <p class="timestamp">${new Date(email.timestamp).toLocaleString()}</p>
+          <hr>
+          <div style="margin-bottom: 20px;">${email.body}</div>
+
+          <button onclick="replyEmail('${email.sender}', '${email.subject}')"
+                  style="background:#1a73e8; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer;">
+            Reply
+          </button>
+        `;
+        }
+      })
+      .catch(error => {
+        document.getElementById('mailView').innerHTML = `<p>Error loading email.</p>`;
+        console.error('Failed to load inbox.json:', error);
+      });
+  </script>
+  <script>
+    function replyEmail(sender, subject) {
+      localStorage.setItem('email_to', sender);
+      localStorage.setItem('email_subject', 'Re: ' + subject);
+      localStorage.setItem('email_body', '\n\n--- Original Message ---\n');
+      window.location.href = 'reply.html';
+    }
+  </script>
+
+    
+</body>
+</html>

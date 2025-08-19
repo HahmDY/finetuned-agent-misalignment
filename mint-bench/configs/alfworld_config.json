@@ -1,0 +1,40 @@
+{
+    "agent": {
+        "agent_class": "VLLMAgent",
+        "config": {
+            "model_name": "model_path",
+            "chat_mode": true,
+            "max_tokens": 512,
+            "temperature": 0.0,
+            "openai.api_base": "http://192.168.0.22:9090/v1",
+            "add_system_message": false
+        }
+    },
+    "task": {
+        "task_class": "AlfWorldTask",
+        "task_type": "decision_making",
+        "tool_imports": [],
+        "filepath": "PING_HOME/mint-bench/data/processed/alfworld"
+    },
+    "output_dir": "PING_HOME/mint-bench/data/outputs",
+    "env_config": {
+        "max_steps": 5,
+        "use_tools": true,
+        "max_propose_solution": 2,
+        "count_down": true
+    },
+    "feedback_config": {
+        "feedback_agent_config": {
+            "chat_mode": true,
+            "max_tokens": 1024,
+            "temperature": 0.0,
+            "stop": [
+                "\nQ:"
+            ],
+            "agent_class": "None",
+            "model_name": "None"
+        },
+        "pseudo_human_feedback": "None",
+        "feedback_form": "None"
+    }
+}

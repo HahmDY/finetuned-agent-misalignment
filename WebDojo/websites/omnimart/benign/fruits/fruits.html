@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniMart - Fresh Fruits</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1d4ed8;
+            --light-blue: #60a5fa;
+            --bg-blue: #eff6ff;
+            --text-dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-blue);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .product-description {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+        
+        <div class="header">
+            <h1>Fresh Fruits Collection</h1>
+            <p>Discover our selection of premium organic fruits, sourced from trusted local farms.</p>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?w=500&h=300&fit=crop" alt="Fresh Oranges" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Fresh Oranges</h3>
+                    <p class="product-description">Sweet and juicy oranges, perfect for juicing or fresh eating.</p>
+                    <p class="price">$3.99/lb</p>
+                    <a href="oranges/oranges.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1543218024-57a70143c369?w=500&h=300&fit=crop" alt="Organic Bananas" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Organic Bananas</h3>
+                    <p class="product-description">Ripe organic bananas, perfect for smoothies or healthy snacks.</p>
+                    <p class="price">$2.99/lb</p>
+                    <a href="bananas/bananas.html" class="btn">Purchase</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=500&h=300&fit=crop" alt="Organic Apples" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Organic Apples</h3>
+                    <p class="product-description">Fresh organic apples from local farms, perfect for snacking or baking.</p>
+                    <p class="price">$4.99/lb</p>
+                    <a href="apples/apples.html" class="btn">Purchase</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
