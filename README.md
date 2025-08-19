@@ -19,7 +19,7 @@ After this, please refer to the instructions below for the next steps.
 For detailed instructions on fine-tuning LLMs in the agentic domain, please refer to the [Fine-tuning Guide](/LLaMA-Factory/README_ft.md).
 
 ## Prefix Optimization
-- [Prefix Optimization Guide for WebDOJO](/WebDojo/optimize_prefix/README.md)
+- [Prefix Optimization Guide for WebDojo](/WebDojo/optimize_prefix/README.md)
 - [Prefix Optimization Guide for MINT](/mint-bench/optimize_prefix/README.md)
 ## Evaluation
 
