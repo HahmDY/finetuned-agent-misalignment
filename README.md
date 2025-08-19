@@ -1,4 +1,4 @@
-# Prompt Injection Guard
+# Prefix Injection Guard
 
 ![main_figure](./asset/main_figure.png)
 
