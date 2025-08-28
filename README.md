@@ -1,4 +1,4 @@
-# Prefix Injection Guard
+# Unintended Misalignment from Agentic Fine-Tuning
 
 ![main_figure](./asset/main_figure.png)
 
